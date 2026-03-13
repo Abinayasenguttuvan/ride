@@ -1,0 +1,372 @@
+<!-- HERO SECTION WITH VIDEO -->
+
+<section class="uride-hero">
+
+    <!-- BACKGROUND VIDEO -->
+    <video autoplay muted loop playsinline class="uride-bg-video">
+    <source src="./car.mp4" type="video/mp4">
+    </video>
+    
+    <div class="uride-overlay"></div>
+    
+    <div class="uride-container">
+    
+    <div class="uride-content uride-fade">
+    
+    <span class="uride-badge">Instant Ride Booking</span>
+    
+    <h1>Book Bike, Auto or Car in Seconds</h1>
+    
+    <p>
+    Fast, affordable rides across your city. Select your ride,
+    enter pickup and destination and travel safely.
+    </p>
+    
+    <!-- BOOKING CARD -->
+    <div class="uride-card">
+    
+    <div class="uride-ride-type">
+    <button class="active" data-price="50">Bike</button>
+    <button data-price="80">Auto</button>
+    <button data-price="120">Car</button>
+    </div>
+    
+    <div class="uride-price">
+    Estimated Price: ₹<span id="uridePrice">50</span>
+    </div>
+    
+    <div class="uride-error" id="urideError">Please fill all details</div>
+    
+    <input id="uridePickup" type="text" placeholder="Pickup Location">
+    <input id="urideDrop" type="text" placeholder="Destination">
+    
+    <button class="uride-book" onclick="urideBook()">Book Ride</button>
+    
+    <!-- MAP -->
+    <div class="uride-map">
+    
+    <iframe
+    src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+    
+    <div class="uride-route"></div>
+    <div class="uride-driver"></div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <!-- VEHICLES -->
+    <img class="uride-vehicle uride-bike"
+    src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png">
+    
+    <img class="uride-vehicle uride-car"
+    src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
+    
+    </section>
+
+    <style>
+        /* HERO SECTION */
+
+.uride-hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+color:black;
+}
+
+/* VIDEO */
+
+.uride-bg-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.uride-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+/* background:rgba(0,0,0,0.6); */
+z-index:-1;
+}
+
+/* CONTAINER */
+
+.uride-container{
+max-width:700px;
+padding:20px;
+}
+
+/* BADGE */
+
+.uride-badge{
+background: yellowgreen;
+padding:6px 16px;
+border-radius:20px;
+font-size:14px;
+display:inline-block;
+margin-bottom:15px;
+color:black;
+font-weight:600;
+}
+
+/* TITLE */
+
+.uride-content h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.uride-content p{
+color: black;
+margin-bottom:30px;
+}
+
+/* BOOK CARD */
+
+.uride-card{
+background: black;
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:18px;
+}
+
+/* RIDE TYPES */
+
+.uride-ride-type{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-bottom:15px;
+}
+
+.uride-ride-type button{
+padding:8px 16px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+background:#ddd;
+}
+
+.uride-ride-type button.active{
+background:yellowgreen;
+color:#000;
+}
+
+/* PRICE */
+
+.uride-price{
+margin-bottom:10px;
+font-weight:600;
+}
+
+/* ERROR */
+
+.uride-error{
+color:#ff6b6b;
+display:none;
+margin-bottom:10px;
+}
+
+/* INPUTS */
+
+.uride-card input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+border:none;
+}
+
+/* BUTTON */
+
+.uride-book{
+width:100%;
+padding:12px;
+border:none;
+background:yellowgreen;
+color:black;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* MAP */
+
+.uride-map{
+margin-top:15px;
+height:180px;
+position:relative;
+border-radius:10px;
+overflow:hidden;
+}
+
+.uride-map iframe{           linear-gradient(90deg,transparent,#38bdf8,transparent);
+width:100%;
+height:100%;
+border:0;
+}
+
+/* ROUTE ANIMATION */
+
+.uride-route{
+position:absolute;
+top:50%;
+left:0;
+height:3px;
+width:100%;
+background: yellowgreen;
+animation:urideRoute 4s linear infinite;
+}
+
+@keyframes urideRoute{
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
+}
+
+/* DRIVER */
+
+.uride-driver{
+position:absolute;
+top:45%;
+left:0;
+width:12px;
+height:12px;
+background:yellowgreen;
+border-radius:50%;
+animation:urideDriver 5s linear infinite;
+}
+
+@keyframes urideDriver{
+0%{left:0}
+100%{left:100%}
+}
+
+/* VEHICLES */
+
+.uride-vehicle{
+position:absolute;
+bottom:40px;
+width:60px;
+opacity:0.9;
+}
+
+.uride-bike{
+left:-80px;
+animation:urideBike 14s linear infinite;
+}
+
+.uride-car{
+right:-80px;
+animation:urideCar 16s linear infinite;
+}
+
+@keyframes urideBike{
+0%{left:-80px}
+100%{left:110%}
+}
+
+@keyframes urideCar{
+0%{right:-80px}
+100%{right:110%}
+}
+
+/* FADE LOAD */
+
+.uride-fade{
+opacity:0;
+transform:translateY(40px);
+animation:urideFade 1.5s forwards;
+animation-delay:0.5s;
+}
+
+@keyframes urideFade{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.uride-content h1{
+font-size:32px;
+}
+
+.uride-map{
+height:150px;
+}
+
+}
+
+@media(max-width:480px){
+
+.uride-content h1{
+font-size:26px;
+}
+
+.uride-card{
+padding:20px;
+}
+
+}
+    </style>
+
+<script>
+
+    /* PRICE SWITCH */
+    
+    const rideBtns=document.querySelectorAll(".uride-ride-type button");
+    const price=document.getElementById("uridePrice");
+    
+    rideBtns.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+    
+    rideBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    
+    price.innerText=btn.dataset.price;
+    
+    });
+    });
+    
+    
+    /* BOOK RIDE */
+    
+    function urideBook(){
+    
+    let pickup=document.getElementById("uridePickup").value;
+    let drop=document.getElementById("urideDrop").value;
+    let error=document.getElementById("urideError");
+    
+    if(pickup=="" || drop==""){
+    
+    error.style.display="block";
+    
+    }else{
+    
+    window.location.href="404.html";
+    
+    }
+    
+    }
+    
+    </script>

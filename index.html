@@ -1,0 +1,3758 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>booking </title>
+
+</head>
+
+
+<body>
+    
+
+<header class="header" id="header">
+
+<div class="nav-container">
+
+<!-- STACKLY LOGO -->
+
+<div class="logo">
+    <a href="./index.html">
+<img src="./logo.webp" alt="Stackly Logo"></a>
+</div>
+
+<div class="menu-toggle" id="menuToggle">☰</div>
+
+<ul class="nav-menu" id="navMenu">
+
+<li class="dropdown">
+
+<a href="./index.html" class="active">Home ▾</a>
+
+<div class="dropdown-menu">
+<a href="./index.html">Home 1</a>
+<a href="./home2.html">Home 2</a>
+</div>
+
+</li>
+
+<li><a href="./about.html">About us</a></li>
+<li><a href="./ride.html">Ride</a></li>
+<li><a href="./blog.html">Blog</a></li>
+<li><a href="./contact.html">Contact</a></li>
+<li><a href="./dashboard.html">Dashboard</a></li>
+<li class="nav-buttons">
+
+
+<a href="login.html" class="login-btn">Login</a>
+<a href="signup.html" class="signup-btn">Sign Up</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+body{
+overflow-x:hidden;
+}
+
+/* HERO */
+
+.hero{
+min-height:100vh;
+display:flex;
+align-items:center;
+padding:80px 8%;
+background:linear-gradient(130deg,#0f172a,#4338ca);
+color:white;
+position:relative;
+overflow:hidden;
+}
+
+/* LOAD ANIMATION */
+
+.fade-up{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.fade-up.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* CONTAINER */
+
+.container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+max-width:1300px;
+margin:auto;
+width:100%;
+}
+
+/* LEFT */
+
+.left{
+flex:1;
+}
+
+.badge{
+background:rgba(255,255,255,0.2);
+padding:10px 20px;
+border-radius:30px;
+display:inline-block;
+margin-bottom:20px;
+}
+
+.left h1{
+font-size:52px;
+margin-bottom:20px;
+}
+
+.left p{
+color:#ddd;
+margin-bottom:30px;
+max-width:520px;
+}
+
+/* GLASS CARD */
+
+.card{
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.1);
+padding:25px;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.2);
+max-width:420px;
+}
+
+/* RIDE SELECTOR */
+
+.ride-type{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
+
+.ride-type button{
+flex:1;
+padding:10px;
+border:none;
+border-radius:10px;
+background:#ffffff30;
+color:white;
+cursor:pointer;
+}
+
+.ride-type button.active{
+background:#ff3b3b;
+}
+
+/* INPUT */
+
+.card input{
+width:100%;
+padding:14px;
+border:none;
+border-radius:8px;
+margin-bottom:12px;
+}
+
+/* ERROR */
+
+.error{
+color:#ffb3b3;
+display:none;
+font-size:14px;
+margin-bottom:10px;
+}
+
+/* PRICE */
+
+.price{
+margin-bottom:10px;
+font-weight:bold;
+color:#00ffcc;
+}
+
+/* BUTTON */
+
+.book{
+width:100%;
+padding:14px;
+border:none;
+background:#ff3b3b;
+color:white;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+}
+
+/* MAP */
+
+.map{
+margin-top:15px;
+height:170px;
+border-radius:12px;
+overflow:hidden;
+position:relative;
+}
+
+.map iframe{
+width:100%;
+height:100%;
+border:none;
+}
+
+/* ROUTE LINE */
+
+.route{
+position:absolute;
+width:3px;
+height:70px;
+background:#00ffcc;
+left:50%;
+top:30%;
+animation:routeMove 3s infinite;
+}
+
+@keyframes routeMove{
+0%{opacity:0}
+50%{opacity:1}
+100%{opacity:0}
+}
+
+/* DRIVER */
+
+.driver{
+position:absolute;
+width:20px;
+height:20px;
+background:yellow;
+border-radius:50%;
+top:65%;
+left:30%;
+animation:driverMove 6s linear infinite;
+}
+
+@keyframes driverMove{
+0%{left:30%;top:65%}
+50%{left:50%;top:45%}
+100%{left:70%;top:30%}
+}
+
+/* RIGHT SIDE SLANTED SCROLL */
+
+.right{
+flex:1;
+height:520px;
+overflow:hidden;
+position:relative;
+transform:rotate(-12deg);
+}
+
+.image-column{
+display:flex;
+flex-direction:column;
+gap:30px;
+animation:scrollImages 20s linear infinite;
+}
+
+.image-column img{
+width:240px;
+border-radius:20px;
+box-shadow:0 20px 40px rgba(0,0,0,0.4);
+animation:zoom 6s ease-in-out infinite;
+}
+
+@keyframes scrollImages{
+0%{transform:translateY(0)}
+100%{transform:translateY(-50%)}
+}
+
+/* ZOOM EFFECT */
+
+@keyframes zoom{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+/* ROAD */
+
+.road{
+position:absolute;
+bottom:-50px;   /* creates space above the road */
+left:0;
+width:100vw;
+height:110px;
+background:#1a1a1a;
+overflow:hidden;
+z-index:1;
+}
+
+/* ROAD LINE */
+
+.road::before{
+content:"";
+position:absolute;
+top:50%;
+left:0;
+width:200vw;
+height:6px;
+
+background:repeating-linear-gradient(
+to right,
+white 0px,
+white 40px,
+transparent 40px,
+transparent 80px
+);
+
+animation:roadMove 3s linear infinite;
+}
+
+/* ROAD MOVEMENT */
+
+@keyframes roadMove{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-200px);
+}
+
+}
+
+/* VEHICLES */
+
+.vehicle{
+position:absolute;
+bottom:40px;  /* keeps vehicles aligned with road */
+width:70px;
+z-index:2;
+animation:drive 10s linear infinite;
+}
+
+.vehicle.bike{
+left:-200px;
+animation-duration:8s;
+}
+
+.vehicle.car{
+left:-150px;
+animation-duration:12s;
+}
+
+@keyframes drive{
+
+0%{
+left:-200px;
+}
+
+100%{
+left:110vw;
+}
+
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.road{
+height:100px;
+bottom:-15px;
+}
+
+.vehicle{
+width:60px;
+bottom:35px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.road{
+height:90px;
+bottom:-10px;
+}
+
+.vehicle{
+width:50px;
+bottom:30px;
+}
+
+}
+/* VEHICLES */
+
+.vehicle{
+position:absolute;
+bottom:25px;
+width:70px;
+animation:drive 10s linear infinite;
+}
+
+.vehicle.bike{
+left:-200px;
+animation-duration:8s;
+}
+
+.vehicle.car{
+left:-150px;
+animation-duration:12s;
+}
+
+@keyframes drive{
+0%{left:-200px}
+100%{left:110%}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.container{
+flex-direction:column;
+text-align:center;
+}
+
+.left h1{
+font-size:38px;
+}
+
+.right{
+transform:none;
+height:350px;
+}
+
+.image-column img{
+width:200px;
+}
+
+}
+
+@media(max-width:600px){
+
+.left h1{
+font-size:28px;
+}
+
+.left p{
+font-size:14px;
+}
+
+.image-column img{
+width:160px;
+}
+
+.vehicle{
+width:55px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+
+
+<!-- HERO SECTION WITH VIDEO -->
+
+<section class="uride-hero">
+
+    <!-- BACKGROUND VIDEO -->
+    <video autoplay muted loop playsinline class="uride-bg-video">
+    <source src="./car.mp4" type="video/mp4">
+    </video>
+    
+    <div class="uride-overlay"></div>
+    
+    <div class="uride-container">
+    
+    <div class="uride-content uride-fade">
+    
+    <span class="uride-badge">Instant Ride Booking</span>
+    
+    <h1>Book Bike, Auto or Car in Seconds</h1>
+    
+    <p>
+    Fast, affordable rides across your city. Select your ride,
+    enter pickup and destination and travel safely.
+    </p>
+    
+    <!-- BOOKING CARD -->
+    <div class="uride-card">
+    
+    <div class="uride-ride-type">
+    <button class="active" data-price="50">Bike</button>
+    <button data-price="80">Auto</button>
+    <button data-price="120">Car</button>
+    </div>
+    
+    <div class="uride-price">
+    Estimated Price: ₹<span id="uridePrice">50</span>
+    </div>
+    
+    <div class="uride-error" id="urideError">Please fill all details</div>
+    
+    <input id="uridePickup" type="text" placeholder="Pickup Location">
+    <input id="urideDrop" type="text" placeholder="Destination">
+    
+    <button class="uride-book" onclick="urideBook()">Book Ride</button>
+    
+    <!-- MAP -->
+    <div class="uride-map">
+    
+    <iframe
+    src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed">
+    </iframe>
+    
+    <div class="uride-route"></div>
+    <div class="uride-driver"></div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <!-- VEHICLES -->
+    <img class="uride-vehicle uride-bike"
+    src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png">
+    
+    <img class="uride-vehicle uride-car"
+    src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
+    
+    </section>
+
+    <style>
+        /* HERO SECTION */
+
+.uride-hero{
+position:relative;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
+color:black;
+}
+
+/* VIDEO */
+
+.uride-bg-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+.uride-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+/* background:rgba(0,0,0,0.6); */
+z-index:-1;
+}
+
+/* CONTAINER */
+
+.uride-container{
+max-width:700px;
+padding:20px;
+}
+
+/* BADGE */
+
+.uride-badge{
+background: yellowgreen;
+padding:6px 16px;
+border-radius:20px;
+font-size:14px;
+display:inline-block;
+margin-bottom:15px;
+color:black;
+font-weight:600;
+}
+
+/* TITLE */
+
+.uride-content h1{
+font-size:46px;
+margin-bottom:15px;
+}
+
+.uride-content p{
+color: black;
+margin-bottom:30px;
+}
+
+/* BOOK CARD */
+
+.uride-card{
+background: black;
+backdrop-filter:blur(10px);
+padding:30px;
+border-radius:18px;
+}
+
+/* RIDE TYPES */
+
+.uride-ride-type{
+display:flex;
+gap:10px;
+justify-content:center;
+margin-bottom:15px;
+}
+
+.uride-ride-type button{
+padding:8px 16px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+background:#ddd;
+}
+
+.uride-ride-type button.active{
+background:yellowgreen;
+color:#000;
+}
+
+/* PRICE */
+
+.uride-price{
+margin-bottom:10px;
+font-weight:600;
+}
+
+/* ERROR */
+
+.uride-error{
+color:#ff6b6b;
+display:none;
+margin-bottom:10px;
+}
+
+/* INPUTS */
+
+.uride-card input{
+width:100%;
+padding:12px;
+margin:8px 0;
+border-radius:8px;
+border:none;
+}
+
+/* BUTTON */
+
+.uride-book{
+width:100%;
+padding:12px;
+border:none;
+background:yellowgreen;
+color:black;
+border-radius:10px;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+/* MAP */
+
+.uride-map{
+margin-top:15px;
+height:180px;
+position:relative;
+border-radius:10px;
+overflow:hidden;
+}
+
+.uride-map iframe{           linear-gradient(90deg,transparent,#38bdf8,transparent);
+width:100%;
+height:100%;
+border:0;
+}
+
+/* ROUTE ANIMATION */
+
+.uride-route{
+position:absolute;
+top:50%;
+left:0;
+height:3px;
+width:100%;
+background: yellowgreen;
+animation:urideRoute 4s linear infinite;
+}
+
+@keyframes urideRoute{
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
+}
+
+/* DRIVER */
+
+.uride-driver{
+position:absolute;
+top:45%;
+left:0;
+width:12px;
+height:12px;
+background:yellowgreen;
+border-radius:50%;
+animation:urideDriver 5s linear infinite;
+}
+
+@keyframes urideDriver{
+0%{left:0}
+100%{left:100%}
+}
+
+/* VEHICLES */
+
+.uride-vehicle{
+position:absolute;
+bottom:40px;
+width:60px;
+opacity:0.9;
+}
+
+.uride-bike{
+left:-80px;
+animation:urideBike 14s linear infinite;
+}
+
+.uride-car{
+right:-80px;
+animation:urideCar 16s linear infinite;
+}
+
+@keyframes urideBike{
+0%{left:-80px}
+100%{left:110%}
+}
+
+@keyframes urideCar{
+0%{right:-80px}
+100%{right:110%}
+}
+
+/* FADE LOAD */
+
+.uride-fade{
+opacity:0;
+transform:translateY(40px);
+animation:urideFade 1.5s forwards;
+animation-delay:0.5s;
+}
+
+@keyframes urideFade{
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.uride-content h1{
+font-size:32px;
+}
+
+.uride-map{
+height:150px;
+}
+
+}
+
+@media(max-width:480px){
+
+.uride-content h1{
+font-size:26px;
+}
+
+.uride-card{
+padding:20px;
+}
+
+}
+    </style>
+
+<script>
+
+    /* PRICE SWITCH */
+    
+    const rideBtns=document.querySelectorAll(".uride-ride-type button");
+    const price=document.getElementById("uridePrice");
+    
+    rideBtns.forEach(btn=>{
+    btn.addEventListener("click",()=>{
+    
+    rideBtns.forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    
+    price.innerText=btn.dataset.price;
+    
+    });
+    });
+    
+    
+    /* BOOK RIDE */
+    
+    function urideBook(){
+    
+    let pickup=document.getElementById("uridePickup").value;
+    let drop=document.getElementById("urideDrop").value;
+    let error=document.getElementById("urideError");
+    
+    if(pickup=="" || drop==""){
+    
+    error.style.display="block";
+    
+    }else{
+    
+    window.location.href="404.html";
+    
+    }
+    
+    }
+    
+    </script>
+<!-- ------------------------------ -->
+
+
+<section class="explore-section">
+
+    <div class="city-bg"></div>
+    
+    <div class="explore-container">
+    
+    <div class="explore-title fade-up">
+    <h2>What You Can Explore With Us</h2>
+    <p>Experience fast, reliable and smart rides with powerful features designed for modern travel.</p>
+    </div>
+    
+    <div class="explore-grid">
+    
+    <div class="explore-card fade-up" style="background-image:url('https://images.unsplash.com/photo-1558981403-c5f9899a28bc')">
+    <div class="explore-overlay"></div>
+    <div class="explore-content">
+    <div class="icon">🏍️</div>
+    <h3>Bike Rides</h3>
+    <p>Quick and affordable bike rides to beat traffic and reach your destination faster.</p>
+    </div>
+    </div>
+    
+    <div class="explore-card fade-up" style="background-image:url('./cab\ .webp')">
+    <div class="explore-overlay"></div>
+    <div class="explore-content">
+    <div class="icon">🚗</div>
+    <h3>Car Rides</h3>
+    <p>Comfortable car rides with professional drivers and premium experience.</p>
+    </div>
+    </div>
+    
+    <div class="explore-card fade-up" style="background-image:url('./auto.webp')">
+    <div class="explore-overlay"></div>
+    <div class="explore-content">
+    <div class="icon">🛺</div>
+    <h3>Auto Rides</h3>
+    <p>Convenient auto rides available anytime for short city commutes.</p>
+    </div>
+    </div>
+    
+    <div class="explore-card fade-up" style="background-image:url('./taxi.webp')">
+    <div class="explore-overlay"></div>
+    <div class="explore-content">
+    <div class="icon">📦</div>
+    <h3>Package Delivery</h3>
+    <p>Send packages safely and quickly across the city.</p>
+    </div>
+    </div>
+    
+    <div class="explore-card fade-up" style="background-image:url('./location.webp')">
+    <div class="explore-overlay"></div>
+    <div class="explore-content">
+    <div class="icon">📍</div>
+    <h3>Live Tracking</h3>
+    <p>Track your ride in real time with GPS powered ride tracking.</p>
+    </div>
+    </div>
+    
+    <div class="explore-card fade-up" style="background-image:url('./payment1.webp')">
+    <div class="explore-overlay"></div>
+    <div class="explore-content">
+    <div class="icon">💳</div>
+    <h3>Smart Payments</h3>
+    <p>Multiple payment options with secure and easy transactions.</p>
+    </div>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+    <style>
+        /* SECTION */
+
+.explore-section{
+position:relative;
+padding:120px 8%;
+background:#0f172a;
+overflow:hidden;
+color:white;
+}
+
+/* CITY BACKGROUND */
+
+.city-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("./taxi1.webp") center/cover no-repeat;
+opacity:0.15;
+z-index:0;
+}
+
+/* CONTAINER */
+
+.explore-container{
+max-width:1300px;
+margin:auto;
+position:relative;
+z-index:2;
+}
+
+/* TITLE */
+
+.explore-title{
+text-align:center;
+margin-bottom:70px;
+}
+
+.explore-title h2{
+font-size:40px;
+margin-bottom:10px;
+}
+
+.explore-title p{
+max-width:600px;
+margin:auto;
+color:#cbd5f5;
+}
+
+/* GRID */
+
+.explore-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+}
+
+/* CARD */
+
+.explore-card{
+position:relative;
+height:260px;
+background-size:cover;
+background-position:center;
+border-radius:20px;
+overflow:hidden;
+animation:zoomCard 8s ease-in-out infinite;
+transition:0.4s;
+}
+
+/* ZOOM ANIMATION */
+
+@keyframes zoomCard{
+
+0%{transform:scale(1)}
+
+50%{transform:scale(1.05)}
+
+100%{transform:scale(1)}
+
+}
+
+/* OVERLAY */
+
+.explore-overlay{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to top,rgba(0,0,0,0.8),rgba(0,0,0,0.2));
+}
+
+/* CONTENT */
+
+.explore-content{
+position:absolute;
+bottom:20px;
+left:20px;
+right:20px;
+z-index:2;
+}
+
+.explore-content .icon{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.explore-content h3{
+margin-bottom:5px;
+font-size:22px;
+}
+
+.explore-content p{
+font-size:14px;
+color:#e5e7eb;
+}
+
+/* HOVER EFFECT */
+
+.explore-card:hover{
+transform:scale(1.08);
+}
+
+/* SCROLL ANIMATION */
+
+.fade-up{
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
+}
+
+.fade-up.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.explore-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.explore-title h2{
+font-size:34px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.explore-grid{
+grid-template-columns:1fr;
+}
+
+.explore-title h2{
+font-size:28px;
+}
+
+.explore-card{
+height:220px;
+}
+
+}
+    </style>
+
+<script>
+
+    const observer=new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+    if(entry.isIntersecting){
+    entry.target.classList.add("active")
+    }
+    })
+    })
+    
+    document.querySelectorAll(".fade-up")
+    .forEach(el=>observer.observe(el))
+    
+    </script>
+
+<section class="rbd-pricing-section">
+
+    <h2 class="rbd-title">Choose Your Ride</h2>
+    
+    <div class="rbd-input-area">
+    
+    <input type="number" id="rbd-distance" placeholder="Distance (km)">
+    <input type="number" id="rbd-time" placeholder="ETA Time (minutes)">
+    
+    <button onclick="rbdCalculateRide()">Calculate Ride</button>
+    
+    </div>
+    
+    
+    <div class="rbd-grid">
+    
+    <!-- BIKE -->
+    
+    <div class="rbd-card rbd-reveal" data-rate="8">
+    
+    <div class="rbd-vehicle">
+    <img src="./bike .webp">
+    </div>
+    
+    <h3>Bike Ride</h3>
+    
+    <div class="rbd-route">
+    <span></span>
+    <div class="rbd-line"></div>
+    <span></span>
+    </div>
+    
+    <p>ETA: <b class="rbd-eta">--</b> min</p>
+    <p>Distance: <b class="rbd-km">--</b> km</p>
+    
+    <p class="rbd-price">₹<span class="rbd-cost">--</span></p>
+    
+    <button onclick="rbdGo404()">Book Now</button>
+    
+    </div>
+    
+    
+    
+    <!-- AUTO -->
+    
+    <div class="rbd-card rbd-reveal" data-rate="12">
+    
+    <div class="rbd-vehicle">
+    <img src="./auto.webp">
+    </div>
+    
+    <h3>Auto Ride</h3>
+    
+    <div class="rbd-route">
+    <span></span>
+    <div class="rbd-line"></div>
+    <span></span>
+    </div>
+    
+    <p>ETA: <b class="rbd-eta">--</b> min</p>
+    <p>Distance: <b class="rbd-km">--</b> km</p>
+    
+    <p class="rbd-price">₹<span class="rbd-cost">--</span></p>
+    
+    <button onclick="rbdGo404()">Book Now</button>
+    
+    </div>
+    
+    
+    
+    <!-- CAR -->
+    
+    <div class="rbd-card rbd-reveal" data-rate="18">
+    
+    <div class="rbd-vehicle">
+    <img src="./cab .webp">
+    </div>
+    
+    <h3>Car Ride</h3>
+    
+    <div class="rbd-route">
+    <span></span>
+    <div class="rbd-line"></div>
+    <span></span>
+    </div>
+    
+    <p>ETA: <b class="rbd-eta">--</b> min</p>
+    <p>Distance: <b class="rbd-km">--</b> km</p>
+    
+    <p class="rbd-price">₹<span class="rbd-cost">--</span></p>
+    
+    <button onclick="rbdGo404()">Book Now</button>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+    <style>
+        /* SECTION BACKGROUND */
+
+.rbd-pricing-section{
+
+padding:120px 8%;
+
+background:
+linear-gradient(rgba(10,10,40,0.8),rgba(10,10,40,0.9)),
+url("./taxi.webp");
+
+background-size:cover;
+background-position:center;
+
+color:white;
+
+text-align:center;
+
+}
+
+/* TITLE */
+
+.rbd-title{
+
+font-size:40px;
+margin-bottom:40px;
+
+}
+
+/* INPUT AREA */
+
+.rbd-input-area{
+
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:60px;
+flex-wrap:wrap;
+
+}
+
+.rbd-input-area input{
+
+padding:12px 15px;
+border-radius:8px;
+border:none;
+width:180px;
+
+}
+
+.rbd-input-area button{
+
+padding:12px 25px;
+border:none;
+background:#ef4444;
+color:white;
+border-radius:25px;
+cursor:pointer;
+
+}
+
+/* GRID */
+
+.rbd-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+max-width:1200px;
+margin:auto;
+
+}
+
+/* CARD */
+
+.rbd-card{
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+
+padding:40px;
+border-radius:20px;
+
+transition:0.4s;
+
+opacity:0;
+transform:translateY(60px);
+
+}
+
+/* SHOW ANIMATION */
+
+.rbd-card.rbd-show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+/* HOVER */
+
+.rbd-card:hover{
+
+transform:translateY(-12px);
+box-shadow:0 25px 45px rgba(0,0,0,0.4);
+
+}
+
+/* VEHICLE ICON */
+
+.rbd-vehicle{
+
+height:70px;
+margin-bottom:10px;
+animation:rbdSlide 4s infinite ease-in-out;
+
+}
+
+.rbd-vehicle img{
+
+height:100%;
+
+}
+
+/* SLIDE ANIMATION */
+
+@keyframes rbdSlide{
+
+0%{transform:translateX(0)}
+
+50%{transform:translateX(20px)}
+
+100%{transform:translateX(0)}
+
+}
+
+/* ROUTE PREVIEW */
+
+.rbd-route{
+
+display:flex;
+align-items:center;
+justify-content:center;
+margin:15px 0;
+
+}
+
+.rbd-route span{
+
+width:10px;
+height:10px;
+background:#ef4444;
+border-radius:50%;
+
+}
+
+.rbd-line{
+
+height:3px;
+width:70px;
+background:linear-gradient(90deg,#ef4444,#22c55e);
+margin:0 6px;
+animation:rbdRoute 2s linear infinite;
+
+}
+
+@keyframes rbdRoute{
+
+0%{background-position:0}
+
+100%{background-position:100px}
+
+}
+
+/* PRICE */
+
+.rbd-price{
+
+font-size:34px;
+color:#22c55e;
+margin:10px 0;
+
+}
+
+/* BUTTON */
+
+.rbd-card button{
+
+margin-top:10px;
+padding:10px 22px;
+background:#ef4444;
+border:none;
+color:white;
+border-radius:20px;
+cursor:pointer;
+
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.rbd-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.rbd-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.rbd-title{
+
+font-size:28px;
+
+}
+
+}
+    </style>
+
+<script>
+
+    /* 404 REDIRECT */
+    
+    function rbdGo404(){
+    
+    window.location.href="404.html"
+    
+    }
+    
+    
+    /* PRICE CALCULATION */
+    
+    function rbdCalculateRide(){
+    
+    let km=document.getElementById("rbd-distance").value
+    let time=document.getElementById("rbd-time").value
+    
+    if(km=="" || time==""){
+    
+    alert("Please fill distance and ETA")
+    return
+    
+    }
+    
+    document.querySelectorAll(".rbd-card").forEach(card=>{
+    
+    let rate=card.getAttribute("data-rate")
+    
+    let price=(km*rate)+(time*2)
+    
+    card.querySelector(".rbd-cost").innerText=Math.round(price)
+    card.querySelector(".rbd-eta").innerText=time
+    card.querySelector(".rbd-km").innerText=km
+    
+    })
+    
+    }
+    
+    
+    /* SCROLL REVEAL */
+    
+    const rbdReveal=document.querySelectorAll(".rbd-reveal")
+    
+    const rbdObserver=new IntersectionObserver(entries=>{
+    
+    entries.forEach((entry,index)=>{
+    
+    if(entry.isIntersecting){
+    
+    setTimeout(()=>{
+    
+    entry.target.classList.add("rbd-show")
+    
+    },index*200)
+    
+    }
+    
+    })
+    
+    },{threshold:0.2})
+    
+    rbdReveal.forEach(el=>{
+    
+    rbdObserver.observe(el)
+    
+    })
+    
+    </script>
+    <!-- ----------------------------- -->
+
+    <section class="rf-ride-section">
+
+        <div class="rf-container">
+        
+        <!-- LEFT CONTENT -->
+        
+        <div class="rf-content rf-reveal-left">
+        
+        <h2>Get Quick Rides,<br>Low Fares</h2>
+        
+        <p>
+        Book bike, auto and car rides instantly with reliable drivers
+        and affordable prices across the city.
+        </p>
+        
+        <a href="404.html" class="rf-btn">
+        Book a Ride →
+        </a>
+        
+        </div>
+        
+        
+        <!-- RIGHT IMAGES -->
+        
+        <div class="rf-image-grid">
+        
+        <div class="rf-card rf-card1 rf-reveal-right">
+        <img src="./auto.webp">
+        </div>
+        
+        <div class="rf-card rf-card2 rf-reveal-top">
+        <img src="./cab .webp">
+        </div>
+        
+        <div class="rf-card rf-card3 rf-reveal-bottom">
+        <img src="./bike .webp">
+        </div>
+        
+        <div class="rf-card rf-card4 rf-reveal-right">
+        <img src="./taxi1.webp">
+        </div>
+        
+        </div>
+        
+        </div>
+        
+        </section>
+
+        <style>
+            /* SECTION */
+
+.rf-ride-section{
+padding:120px 8%;
+background:#f3f4f6;
+font-family:Arial;
+overflow:hidden;
+}
+
+/* CONTAINER */
+
+.rf-container{
+max-width:1200px;
+margin:auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:60px;
+}
+
+/* CONTENT */
+
+.rf-content h2{
+font-size:48px;
+font-weight:700;
+color:#111827;
+margin-bottom:20px;
+}
+
+.rf-content p{
+font-size:18px;
+color:#4b5563;
+line-height:1.6;
+margin-bottom:25px;
+}
+
+/* BUTTON */
+
+.rf-btn{
+display:inline-block;
+background:#111827;
+color:white;
+padding:14px 32px;
+border-radius:40px;
+text-decoration:none;
+font-weight:600;
+transition:0.3s;
+}
+
+.rf-btn:hover{
+background:#000;
+}
+
+/* IMAGE GRID */
+
+.rf-image-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:24px;
+}
+
+/* GLASSMORPHISM CARD */
+
+.rf-card{
+position:relative;
+overflow:hidden;
+border-radius:22px;
+
+background:rgba(255,255,255,0.25);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.3);
+
+box-shadow:0 20px 40px rgba(0,0,0,0.15);
+
+animation:rfFloat 6s ease-in-out infinite;
+transition:0.5s;
+}
+
+/* IMAGE */
+
+.rf-card img{
+width:100%;
+height:100%;
+object-fit:cover;
+filter:blur(4px);
+transition:0.5s;
+}
+
+/* HOVER EFFECT */
+
+.rf-card:hover img{
+filter:blur(0);
+transform:scale(1.1);
+}
+
+/* DIFFERENT SHAPES */
+
+.rf-card1{height:230px}
+.rf-card2{height:260px}
+.rf-card3{height:240px}
+.rf-card4{height:210px}
+
+/* FLOATING ANIMATION */
+
+@keyframes rfFloat{
+
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+
+}
+
+/* SCROLL REVEAL */
+
+.rf-reveal-left,
+.rf-reveal-right,
+.rf-reveal-top,
+.rf-reveal-bottom{
+opacity:0;
+transition:1s;
+}
+
+.rf-reveal-left{transform:translateX(-60px)}
+.rf-reveal-right{transform:translateX(60px)}
+.rf-reveal-top{transform:translateY(-60px)}
+.rf-reveal-bottom{transform:translateY(60px)}
+
+.rf-show{
+opacity:1;
+transform:translate(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.rf-container{
+grid-template-columns:1fr;
+text-align:center;
+gap:50px;
+}
+
+.rf-content h2{
+font-size:38px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.rf-content h2{
+font-size:30px;
+}
+
+.rf-image-grid{
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.rf-card1,.rf-card2,.rf-card3,.rf-card4{
+height:180px;
+}
+
+}
+        </style>
+
+<script>
+
+    const rfElements=document.querySelectorAll(
+    ".rf-reveal-left,.rf-reveal-right,.rf-reveal-top,.rf-reveal-bottom"
+    )
+    
+    const rfObserver=new IntersectionObserver(entries=>{
+    
+    entries.forEach(entry=>{
+    
+    if(entry.isIntersecting){
+    entry.target.classList.add("rf-show")
+    }
+    
+    })
+    
+    },{threshold:0.2})
+    
+    rfElements.forEach(el=>{
+    rfObserver.observe(el)
+    })
+    
+    </script>
+<!-- ------------------------ -->
+
+<script>
+
+    /* FAQ TOGGLE */
+    
+    const items=document.querySelectorAll(".uxfaq-item")
+    
+    items.forEach(item=>{
+    
+    item.querySelector(".uxfaq-question").addEventListener("click",()=>{
+    
+    item.classList.toggle("active")
+    
+    })
+    
+    })
+    
+    
+    /* SCROLL ANIMATION */
+    
+    const reveal=document.querySelectorAll(".uxfaq-reveal")
+    
+    const observer=new IntersectionObserver(entries=>{
+    
+    entries.forEach((entry,index)=>{
+    
+    if(entry.isIntersecting){
+    
+    setTimeout(()=>{
+    
+    entry.target.classList.add("uxfaq-show")
+    
+    },index*150)
+    
+    }
+    
+    })
+    
+    },{threshold:0.2})
+    
+    reveal.forEach(el=>{
+    observer.observe(el)
+    })
+    
+    </script>
+    <!-- ------------------------ -->
+
+    <section class="fxe-section">
+
+        <div class="fxe-container">
+        
+        <!-- LEFT IMAGE -->
+        
+        <div class="fxe-image-box fxe-reveal">
+        
+        <img src="taxi.webp" alt="Drive and earn">
+        
+        <div class="fxe-floating-icon icon1">💰</div>
+        <div class="fxe-floating-icon icon2">⏰</div>
+        <div class="fxe-floating-icon icon3">🚗</div>
+        
+        </div>
+        
+        
+        
+        <!-- RIGHT CONTENT -->
+        
+        <div class="fxe-content">
+        
+        <h2 class="fxe-title fxe-reveal">
+        Flexible Hours, More Earnings
+        </h2>
+        
+        <p class="fxe-text fxe-reveal">
+        Drive when you want and earn on your schedule. Whether it's a few hours a day or full-time driving, our platform gives you the flexibility to control your time and income.
+        </p>
+        
+        <div class="fxe-points">
+        
+        <div class="fxe-point fxe-reveal">
+        <span>⏰</span>
+        <p>Choose your own working hours anytime.</p>
+        </div>
+        
+        <div class="fxe-point fxe-reveal">
+        <span>💰</span>
+        <p>Earn competitive fares and incentives.</p>
+        </div>
+        
+        <div class="fxe-point fxe-reveal">
+        <span>📍</span>
+        <p>Drive in your preferred city zones.</p>
+        </div>
+        
+        </div>
+        <a href="./404.html">
+        <button class="fxe-btn fxe-reveal"></a>
+        Start Earning
+        </button>
+        
+        </div>
+        
+        </div>
+        
+        </section>
+
+        <style>
+            /* SECTION */
+
+.fxe-section{
+padding:100px 20px;
+background:#0f172a;
+color:white;
+font-family:Arial;
+overflow:hidden;
+}
+
+.fxe-container{
+max-width:1200px;
+margin:auto;
+display:flex;
+align-items:center;
+gap:60px;
+}
+
+
+/* IMAGE BOX */
+
+.fxe-image-box{
+position:relative;
+flex:1;
+border-radius:60px;
+overflow:hidden;
+}
+
+.fxe-image-box img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+border-radius:60px;
+}
+
+/* CYLINDER CURVE CORNERS */
+
+.fxe-image-box::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:60px;
+box-shadow:inset 0 0 60px rgba(0,0,0,0.3);
+}
+
+
+/* FLOATING ICONS */
+
+.fxe-floating-icon{
+position:absolute;
+font-size:28px;
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(8px);
+padding:10px;
+border-radius:50%;
+animation:fxeFloat 4s ease-in-out infinite;
+}
+
+.icon1{top:20px;left:20px;}
+.icon2{bottom:40px;right:20px;}
+.icon3{top:50%;left:-10px;}
+
+@keyframes fxeFloat{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-10px);}
+}
+
+
+/* CONTENT */
+
+.fxe-content{
+flex:1;
+}
+
+.fxe-title{
+font-size:40px;
+margin-bottom:20px;
+}
+
+.fxe-text{
+color:#cbd5e1;
+margin-bottom:30px;
+line-height:1.6;
+}
+
+
+/* POINTS */
+
+.fxe-points{
+display:flex;
+flex-direction:column;
+gap:20px;
+margin-bottom:30px;
+}
+
+.fxe-point{
+display:flex;
+align-items:center;
+gap:15px;
+font-size:16px;
+}
+
+.fxe-point span{
+font-size:24px;
+}
+
+
+/* BUTTON */
+
+.fxe-btn{
+background:linear-gradient(45deg,#38bdf8,#6366f1);
+border:none;
+padding:14px 30px;
+border-radius:30px;
+color:white;
+font-size:16px;
+cursor:pointer;
+transition:.3s;
+}
+
+.fxe-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+
+/* SCROLL REVEAL */
+
+.fxe-reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.fxe-reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.fxe-container{
+flex-direction:column;
+text-align:center;
+}
+
+.fxe-content{
+margin-top:30px;
+}
+
+.fxe-point{
+justify-content:center;
+}
+
+.fxe-title{
+font-size:32px;
+}
+
+}
+
+@media(max-width:600px){
+
+.fxe-title{
+font-size:26px;
+}
+
+.fxe-text{
+font-size:14px;
+}
+
+.fxe-btn{
+width:100%;
+}
+
+}
+            </style>
+
+<script>
+
+    const fxeElements=document.querySelectorAll(".fxe-reveal");
+    
+    function fxeReveal(){
+    
+    fxeElements.forEach((el,i)=>{
+    
+    const top=el.getBoundingClientRect().top;
+    const windowHeight=window.innerHeight;
+    
+    if(top<windowHeight-100){
+    
+    setTimeout(()=>{
+    el.classList.add("active");
+    },i*200);
+    
+    }
+    
+    });
+    
+    }
+    
+    window.addEventListener("scroll",fxeReveal);
+    
+    </script>
+    <!-- --------------------------- -->
+
+
+
+    <section class="rbfaq-section">
+
+        <div class="rbfaq-wrapper">
+        
+        <!-- LEFT SIDE -->
+        
+        <div class="rbfaq-left">
+        
+        <h2 class="rbfaq-title">Frequently Asked Questions</h2>
+        
+        <p class="rbfaq-subtitle">
+        Everything you need to know about booking rides, drivers and payments.
+        </p>
+        
+        <div class="rbfaq-list">
+        
+        <div class="rbfaq-item rbfaq-reveal">
+        <button class="rbfaq-question">
+        How do I book a ride?
+        <span>+</span>
+        </button>
+        
+        <div class="rbfaq-answer">
+        Enter pickup and destination, choose Bike, Auto or Car and confirm your ride.
+        </div>
+        </div>
+        
+        
+        <div class="rbfaq-item rbfaq-reveal">
+        <button class="rbfaq-question">
+        How is ride price calculated?
+        <span>+</span>
+        </button>
+        
+        <div class="rbfaq-answer">
+        Fare depends on distance, travel time, traffic and vehicle type.
+        </div>
+        </div>
+        
+        
+        <div class="rbfaq-item rbfaq-reveal">
+        <button class="rbfaq-question">
+        Can I track my driver live?
+        <span>+</span>
+        </button>
+        
+        <div class="rbfaq-answer">
+        Yes. Once the ride is confirmed you can track the driver in real time.
+        </div>
+        </div>
+        
+        
+        <div class="rbfaq-item rbfaq-reveal">
+        <button class="rbfaq-question">
+        Which payment methods are supported?
+        <span>+</span>
+        </button>
+        
+        <div class="rbfaq-answer">
+        UPI, debit cards, credit cards, wallets and cash are supported.
+        </div>
+        </div>
+        
+        </div>
+        
+        </div>
+        
+        
+        <!-- RIGHT SIDE -->
+        
+        <div class="rbfaq-right rbfaq-reveal">
+        
+        <img src="./question.webp" class="rbfaq-main">
+        
+        <img src="./plus.webp" class="rbfaq-icon i1">
+        <img src="./cab .webp" class="rbfaq-icon i2">
+        <img src="./auto.webp" class="rbfaq-icon i3">
+        
+        <div class="rbfaq-bubble b1">Book Ride</div>
+        <div class="rbfaq-bubble b2">Track Driver</div>
+        <div class="rbfaq-bubble b3">Secure Payment</div>
+        
+        </div>
+        
+        </div>
+        
+        </section>
+
+        <style>
+            /* SECTION */
+
+.rbfaq-section{
+width:100%;
+padding:100px 6%;
+background:#f5f7fb;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+/* CONTAINER */
+
+.rbfaq-wrapper{
+max-width:1200px;
+margin:auto;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+}
+
+/* TITLE */
+
+.rbfaq-title{
+font-size:38px;
+margin-bottom:10px;
+color:#111;
+}
+
+.rbfaq-subtitle{
+color:#555;
+margin-bottom:30px;
+}
+
+/* FAQ CARD */
+
+.rbfaq-item{
+background:#fff;
+border-radius:12px;
+margin-bottom:15px;
+box-shadow:0 5px 18px rgba(0,0,0,0.08);
+overflow:hidden;
+}
+
+/* QUESTION */
+
+.rbfaq-question{
+width:100%;
+border:none;
+background:#fff;
+padding:18px 20px;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+font-size:16px;
+font-weight:600;
+cursor:pointer;
+}
+
+/* ANSWER */
+
+.rbfaq-answer{
+max-height:0;
+overflow:hidden;
+padding:0 20px;
+transition:0.4s ease;
+color:#555;
+}
+
+.rbfaq-item.active .rbfaq-answer{
+max-height:120px;
+padding-bottom:15px;
+}
+
+/* RIGHT SIDE */
+
+.rbfaq-right{
+position:relative;
+text-align:center;
+}
+
+/* MAIN IMAGE */
+
+.rbfaq-main{
+width:260px;
+max-width:100%;
+}
+
+/* FLOAT ICON */
+
+.rbfaq-icon{
+position:absolute;
+width:38px;
+animation:rbfaqFloat 4s infinite ease-in-out;
+}
+
+.i1{top:20px;left:40px;}
+.i2{bottom:20px;right:30px;}
+.i3{top:120px;right:-10px;}
+
+/* BUBBLES */
+
+.rbfaq-bubble{
+position:absolute;
+background:#fff;
+padding:7px 14px;
+border-radius:20px;
+font-size:13px;
+box-shadow:0 5px 12px rgba(0,0,0,0.1);
+animation:rbfaqFloat 5s infinite;
+}
+
+.b1{top:-10px;right:60px;}
+.b2{bottom:40px;left:10px;}
+.b3{top:120px;left:-20px;}
+
+/* FLOAT */
+
+@keyframes rbfaqFloat{
+
+0%{transform:translateY(0)}
+50%{transform:translateY(-10px)}
+100%{transform:translateY(0)}
+
+}
+
+/* SCROLL ANIMATION */
+
+.rbfaq-reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all .6s ease;
+}
+
+.rbfaq-reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.rbfaq-wrapper{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.rbfaq-right{
+margin-top:40px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.rbfaq-title{
+font-size:28px;
+}
+
+.rbfaq-main{
+width:200px;
+}
+
+}
+        </style>
+
+<script>
+
+    /* FAQ ACCORDION */
+    
+    document.querySelectorAll(".rbfaq-question").forEach(btn=>{
+    
+    btn.addEventListener("click",()=>{
+    
+    const parent=btn.closest(".rbfaq-item")
+    parent.classList.toggle("active")
+    
+    })
+    
+    })
+    
+    
+    /* SCROLL REVEAL */
+    
+    const rbfaqElements=document.querySelectorAll(".rbfaq-reveal")
+    
+    const rbfaqObserver=new IntersectionObserver((entries)=>{
+    
+    entries.forEach((entry)=>{
+    
+    if(entry.isIntersecting){
+    
+    entry.target.classList.add("active")
+    
+    }
+    
+    })
+    
+    },{threshold:0.2})
+    
+    rbfaqElements.forEach(el=>{
+    rbfaqObserver.observe(el)
+    })
+    
+    </script>
+    
+<!-- ---------------- -->
+
+
+<section class="mxr-stat-section">
+
+    <div class="mxr-map-bg">
+    
+    <div class="mxr-route r1"></div>
+    <div class="mxr-route r2"></div>
+    <div class="mxr-route r3"></div>
+    
+    <span class="mxr-vehicle v1">🚗</span>
+    <span class="mxr-vehicle v2">🏍️</span>
+    <span class="mxr-vehicle v3">🛺</span>
+    
+    </div>
+    
+    
+    <div class="mxr-container">
+    
+    <h2 class="mxr-title mxr-reveal">
+    Trusted by Millions of Riders
+    </h2>
+    
+    
+    <!-- COUNTERS -->
+    
+    <div class="mxr-counters">
+    
+    <div class="mxr-card mxr-reveal">
+    <h3 class="mxr-number" data-target="10000000">0</h3>
+    <p>Rides Completed</p>
+    </div>
+    
+    <div class="mxr-card mxr-reveal">
+    <h3 class="mxr-number" data-target="500000">0</h3>
+    <p>Active Drivers</p>
+    </div>
+    
+    <div class="mxr-card mxr-reveal">
+    <h3 class="mxr-number" data-target="120">0</h3>
+    <p>Cities Covered</p>
+    </div>
+    
+    <div class="mxr-card mxr-reveal">
+    <h3 class="mxr-number" data-target="4.9">0</h3>
+    <p>Average Rating</p>
+    </div>
+    
+    </div>
+    
+    
+    
+    <!-- TESTIMONIAL SLIDER -->
+    
+    <div class="mxr-slider mxr-reveal">
+    
+    <button class="mxr-arrow mxr-prev">&#10094;</button>
+    
+    <div class="mxr-slider-wrapper">
+    
+    <div class="mxr-track">
+    
+    <div class="mxr-testimonial">
+    <img src="./sana.webp">
+    <h4>Rahul Sharma</h4>
+    <p>"Fast pickup and smooth ride. Much better than waiting for taxis."</p>
+    </div>
+    
+    <div class="mxr-testimonial">
+    <img src="./nithiya.webp">
+    <h4>Anita Verma</h4>
+    <p>"Affordable rides and great drivers. I use it daily."</p>
+    </div>
+    
+    <div class="mxr-testimonial">
+    <img src="./arjun.webp">
+    <h4>Arjun Patel</h4>
+    <p>"Bike rides are perfect for city traffic."</p>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    <button class="mxr-arrow mxr-next">&#10095;</button>
+    
+    </div>
+    
+    <div class="mxr-dots"></div>
+    
+    </div>
+    
+    </section>
+
+    <Style>
+        /* SECTION */
+
+.mxr-stat-section{
+padding:110px 20px;
+background:#0f172a;
+color:white;
+position:relative;
+overflow:hidden;
+font-family:Arial;
+}
+
+.mxr-container{
+max-width:1200px;
+margin:auto;
+text-align:center;
+}
+
+.mxr-title{
+font-size:38px;
+margin-bottom:70px;
+}
+
+
+/* MAP BACKGROUND */
+
+.mxr-map-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+pointer-events:none;
+}
+
+
+/* ROUTES */
+
+.mxr-route{
+position:absolute;
+height:2px;
+background:linear-gradient(90deg,transparent,#38bdf8,transparent);
+animation:mxrRoute 6s linear infinite;
+opacity:.4;
+}
+
+.r1{top:25%;width:70%;left:-10%;}
+.r2{top:60%;width:80%;left:-20%;}
+.r3{top:45%;width:60%;left:-15%;}
+
+@keyframes mxrRoute{
+0%{transform:translateX(-100%);}
+100%{transform:translateX(100%);}
+}
+
+
+/* VEHICLES */
+
+.mxr-vehicle{
+position:absolute;
+font-size:26px;
+opacity:.3;
+animation:mxrMove 14s linear infinite;
+}
+
+.v1{top:10%;left:-10%;}
+.v2{top:70%;left:-20%;}
+.v3{top:40%;left:-15%;}
+
+@keyframes mxrMove{
+0%{transform:translateX(0);}
+100%{transform:translateX(140vw);}
+}
+
+
+/* COUNTERS */
+
+.mxr-counters{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:25px;
+margin-bottom:80px;
+}
+
+/* GLASS CARD */
+
+.mxr-card{
+padding:40px 25px;
+border-radius:16px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(14px);
+border:1px solid rgba(255,255,255,0.2);
+transition:.3s;
+}
+
+.mxr-card:hover{
+transform:translateY(-8px);
+}
+
+/* GLOW COUNTER */
+
+.mxr-number{
+font-size:34px;
+margin-bottom:10px;
+color:#38bdf8;
+text-shadow:
+0 0 10px #38bdf8,
+0 0 20px #38bdf8,
+0 0 40px #38bdf8;
+animation:mxrGlow 2s infinite alternate;
+}
+
+@keyframes mxrGlow{
+from{opacity:.7;}
+to{opacity:1;}
+}
+
+
+/* TESTIMONIAL */
+
+.mxr-slider{
+max-width:750px;
+margin:auto;
+position:relative;
+}
+
+.mxr-slider-wrapper{
+overflow:hidden;
+}
+
+.mxr-track{
+display:flex;
+transition:.5s;
+}
+
+.mxr-testimonial{
+min-width:100%;
+padding:35px;
+border-radius:14px;
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(12px);
+border:1px solid rgba(255,255,255,0.2);
+}
+
+.mxr-testimonial img{
+width:70px;
+height:70px;
+border-radius:50%;
+margin-bottom:12px;
+}
+
+.mxr-testimonial h4{
+margin:6px 0;
+}
+
+
+/* ARROWS */
+
+.mxr-arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#38bdf8;
+border:none;
+color:white;
+width:40px;
+height:40px;
+border-radius:50%;
+font-size:22px;
+cursor:pointer;
+}
+
+.mxr-prev{left:-50px;}
+.mxr-next{right:-50px;}
+
+
+/* DOTS */
+
+.mxr-dots{
+margin-top:20px;
+}
+
+.mxr-dots span{
+width:10px;
+height:10px;
+background:#aaa;
+display:inline-block;
+border-radius:50%;
+margin:6px;
+cursor:pointer;
+}
+
+.mxr-dots .active{
+background:#38bdf8;
+}
+
+
+/* SCROLL REVEAL */
+
+.mxr-reveal{
+opacity:0;
+transform:translateY(60px);
+transition:1s;
+}
+
+.mxr-reveal.active{
+opacity:1;
+transform:translateY(0);
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.mxr-counters{
+grid-template-columns:repeat(2,1fr);
+}
+
+.mxr-prev{left:-30px;}
+.mxr-next{right:-30px;}
+
+}
+
+@media(max-width:600px){
+
+.mxr-title{
+font-size:28px;
+}
+
+.mxr-counters{
+grid-template-columns:1fr;
+}
+
+.mxr-arrow{
+display:none;
+}
+
+.mxr-testimonial{
+padding:25px;
+}
+
+}
+        </style>
+
+<script>
+
+    /* COUNTER ANIMATION */
+    
+    const counters=document.querySelectorAll(".mxr-number");
+    
+    function startCounter(){
+    
+    counters.forEach(counter=>{
+    
+    const target=+counter.getAttribute("data-target");
+    
+    let count=0;
+    
+    const update=()=>{
+    
+    count+=target/200;
+    
+    if(count<target){
+    
+    counter.innerText=Math.floor(count);
+    
+    requestAnimationFrame(update);
+    
+    }else{
+    
+    counter.innerText=target;
+    
+    }
+    
+    };
+    
+    update();
+    
+    });
+    
+    }
+    
+    
+    /* SCROLL REVEAL */
+    
+    const reveals=document.querySelectorAll(".mxr-reveal");
+    
+    function revealScroll(){
+    
+    reveals.forEach((el,i)=>{
+    
+    const top=el.getBoundingClientRect().top;
+    
+    const windowHeight=window.innerHeight;
+    
+    if(top<windowHeight-100){
+    
+    setTimeout(()=>{
+    
+    el.classList.add("active");
+    
+    },i*200);
+    
+    }
+    
+    });
+    
+    }
+    
+    window.addEventListener("scroll",()=>{
+    
+    revealScroll();
+    startCounter();
+    
+    });
+    
+    
+    /* SLIDER */
+    
+    const track=document.querySelector(".mxr-track");
+    const slides=document.querySelectorAll(".mxr-testimonial");
+    const next=document.querySelector(".mxr-next");
+    const prev=document.querySelector(".mxr-prev");
+    const dotsContainer=document.querySelector(".mxr-dots");
+    
+    let index=0;
+    
+    /* CREATE DOTS */
+    
+    slides.forEach((_,i)=>{
+    
+    const dot=document.createElement("span");
+    
+    if(i===0) dot.classList.add("active");
+    
+    dotsContainer.appendChild(dot);
+    
+    dot.addEventListener("click",()=>{
+    
+    index=i;
+    updateSlider();
+    
+    });
+    
+    });
+    
+    const dots=document.querySelectorAll(".mxr-dots span");
+    
+    function updateSlider(){
+    
+    track.style.transform=`translateX(-${index*100}%)`;
+    
+    dots.forEach(d=>d.classList.remove("active"));
+    
+    dots[index].classList.add("active");
+    
+    }
+    
+    next.onclick=()=>{
+    
+    index=(index+1)%slides.length;
+    
+    updateSlider();
+    
+    };
+    
+    prev.onclick=()=>{
+    
+    index=(index-1+slides.length)%slides.length;
+    
+    updateSlider();
+    
+    };
+    
+    </script>
+    <!-- ---------------- -->
+    <section class="drvjoinx-section">
+
+        <div class="drvjoinx-bg"></div>
+        
+        <div class="drvjoinx-wrapper">
+        
+        <!-- LEFT CONTENT -->
+        
+        <div class="drvjoinx-text drvjoinx-anim">
+        
+        <h2 class="drvjoinx-title">Earn Money Driving With Us</h2>
+        
+        <p class="drvjoinx-desc">
+        Join thousands of drivers earning daily with flexible schedules and instant payouts.
+        </p>
+        
+        <ul class="drvjoinx-list">
+        <li>✔ Flexible working hours</li>
+        <li>✔ High ride demand</li>
+        <li>✔ Weekly payouts</li>
+        </ul>
+        
+        </div>
+        
+        
+        <!-- GLASS CARD -->
+        
+        <div class="drvjoinx-card drvjoinx-anim">
+        
+        <h3>Become a Driver</h3>
+        
+        <form id="drvjoinxForm">
+        
+        <input type="text" id="drvjoinxName" placeholder="Full Name">
+        
+        <input type="tel" id="drvjoinxPhone" placeholder="Phone Number">
+        
+        <select id="drvjoinxVehicle">
+        <option value="">Select Vehicle</option>
+        <option>Bike</option>
+        <option>Auto</option>
+        <option>Car</option>
+        </select>
+        
+        <button type="submit">Start Driving</button>
+        
+        <p id="drvjoinxError"></p>
+        
+        </form>
+        
+        </div>
+        
+        </div>
+        
+        </section>
+
+        <style>
+            /* SECTION */
+
+.drvjoinx-section{
+position:relative;
+width:100%;
+padding:110px 6%;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+overflow:hidden;
+}
+
+/* BACKGROUND IMAGE */
+
+.drvjoinx-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("./taxi.webp") center/cover no-repeat;
+z-index:0;
+}
+
+/* DARK OVERLAY */
+
+.drvjoinx-bg::after{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+/* WRAPPER */
+
+.drvjoinx-wrapper{
+position:relative;
+z-index:2;
+
+max-width:1200px;
+margin:auto;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:60px;
+align-items:center;
+
+color:white;
+}
+
+/* TEXT */
+
+.drvjoinx-title{
+font-size:40px;
+margin-bottom:15px;
+}
+
+.drvjoinx-desc{
+margin-bottom:20px;
+color:#ddd;
+}
+
+.drvjoinx-list{
+padding-left:18px;
+}
+
+/* GLASS CARD */
+
+.drvjoinx-card{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(12px);
+padding:40px;
+border-radius:16px;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* FORM */
+
+.drvjoinx-card input,
+.drvjoinx-card select{
+width:100%;
+padding:13px;
+margin-bottom:15px;
+border:none;
+border-radius:8px;
+outline:none;
+}
+
+/* BUTTON */
+
+.drvjoinx-card button{
+width:100%;
+padding:14px;
+border:none;
+border-radius:8px;
+background:#00ff9d;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
+
+.drvjoinx-card button:hover{
+background:#00cc7a;
+}
+
+/* ERROR TEXT */
+
+#drvjoinxError{
+color:#ff8080;
+font-size:14px;
+margin-top:6px;
+}
+
+/* SCROLL ANIMATION */
+
+.drvjoinx-anim{
+opacity:0;
+transform:translateY(40px);
+transition:0.6s ease;
+}
+
+.drvjoinx-anim.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.drvjoinx-wrapper{
+grid-template-columns:1fr;
+text-align:center;
+}
+
+.drvjoinx-card{
+margin-top:30px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.drvjoinx-title{
+font-size:28px;
+}
+
+.drvjoinx-card{
+padding:25px;
+}
+
+}
+        </style>
+
+<script>
+
+    /* FORM VALIDATION */
+    
+    document.getElementById("drvjoinxForm").addEventListener("submit",function(e){
+    
+    e.preventDefault()
+    
+    let name=document.getElementById("drvjoinxName").value.trim()
+    let phone=document.getElementById("drvjoinxPhone").value.trim()
+    let vehicle=document.getElementById("drvjoinxVehicle").value
+    let error=document.getElementById("drvjoinxError")
+    
+    if(name==="" || phone==="" || vehicle===""){
+    
+    error.innerText="Please fill details"
+    
+    }else{
+    
+    window.location.href="404.html"
+    
+    }
+    
+    })
+    
+    
+    /* SCROLL ANIMATION */
+    
+    const drvjoinxElements=document.querySelectorAll(".drvjoinx-anim")
+    
+    const drvjoinxObserver=new IntersectionObserver((entries)=>{
+    
+    entries.forEach(entry=>{
+    
+    if(entry.isIntersecting){
+    
+    entry.target.classList.add("show")
+    
+    }
+    
+    })
+    
+    },{threshold:0.2})
+    
+    drvjoinxElements.forEach(el=>{
+    drvjoinxObserver.observe(el)
+    })
+    
+    </script>
+    <!-- ------------------------- -->
+    <!-- UBER LIVE MAP SECTION -->
+
+<section class="ubmap-section">
+
+    <div class="ubmap-bg">
+    
+    <!-- moving route lines -->
+    <div class="ubmap-route route1"></div>
+    <div class="ubmap-route route2"></div>
+    <div class="ubmap-route route3"></div>
+    
+    <!-- floating cars -->
+    <div class="ubmap-car car1">🚗</div>
+    <div class="ubmap-car car2">🚕</div>
+    <div class="ubmap-car car3">🚙</div>
+    
+    </div>
+    
+    
+    <div class="ubmap-container ubmap-fade">
+    
+    <div class="ubmap-card">
+    
+    <h2>Live Ride Tracking</h2>
+    
+    <p>
+    Track your ride in real time with our advanced GPS system.
+    See nearby drivers, live routes, and estimated arrival times
+    for a safer and smarter ride experience.
+    </p>
+    
+    
+    <div class="ubmap-stats">
+    
+    <div class="ubmap-stat">
+    <h3 class="ub-counter" data-target="10000000">0</h3>
+    <p>Rides Completed</p>
+    </div>
+    
+    <div class="ubmap-stat">
+    <h3 class="ub-counter" data-target="500000">0</h3>
+    <p>Active Drivers</p>
+    </div>
+    
+    <div class="ubmap-stat">
+    <h3 class="ub-counter" data-target="120">0</h3>
+    <p>Cities Covered</p>
+    </div>
+    
+    </div>
+    <a href="./404.html">
+    <button class="ubmap-btn">Track Your Ride</button></a>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+    <style>
+        /* LIVE MAP SECTION */
+
+.ubmap-section{
+position:relative;
+padding:120px 8%;
+background:#0f172a;
+color:white;
+overflow:hidden;
+}
+
+/* MAP BACKGROUND */
+
+.ubmap-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:1;
+background:url("https://www.transparenttextures.com/patterns/cartographer.png");
+opacity:0.15;
+}
+
+/* ROUTE LINES */
+
+.ubmap-route{
+position:absolute;
+height:3px;
+background:linear-gradient(90deg,transparent,#38bdf8,transparent);
+animation:ubroute 6s linear infinite;
+}
+
+.route1{
+top:30%;
+width:60%;
+left:-60%;
+}
+
+.route2{
+top:60%;
+width:50%;
+left:-50%;
+animation-delay:2s;
+}
+
+.route3{
+top:45%;
+width:70%;
+left:-70%;
+animation-delay:4s;
+}
+
+@keyframes ubroute{
+0%{left:-70%;}
+100%{left:120%;}
+}
+
+/* FLOATING CARS */
+
+.ubmap-car{
+position:absolute;
+font-size:24px;
+animation:ubcar 10s linear infinite;
+}
+
+.car1{
+top:25%;
+left:-10%;
+animation-duration:12s;
+}
+
+.car2{
+top:55%;
+left:-20%;
+animation-duration:15s;
+}
+
+.car3{
+top:75%;
+left:-15%;
+animation-duration:18s;
+}
+
+@keyframes ubcar{
+0%{left:-20%;}
+100%{left:120%;}
+}
+
+/* CONTENT */
+
+.ubmap-container{
+position:relative;
+z-index:2;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+}
+
+/* GLASS CARD */
+
+.ubmap-card{
+max-width:700px;
+padding:50px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.2);
+border-radius:20px;
+backdrop-filter:blur(12px);
+}
+
+.ubmap-card h2{
+font-size:38px;
+margin-bottom:20px;
+}
+
+.ubmap-card p{
+color:#cbd5f5;
+margin-bottom:35px;
+line-height:1.7;
+}
+
+/* STATS */
+
+.ubmap-stats{
+display:flex;
+justify-content:space-between;
+gap:30px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.ubmap-stat{
+flex:1;
+min-width:120px;
+}
+
+.ubmap-stat h3{
+font-size:32px;
+color:#38bdf8;
+}
+
+.ubmap-stat p{
+font-size:14px;
+color:#cbd5f5;
+}
+
+/* BUTTON */
+
+.ubmap-btn{
+padding:14px 32px;
+border:none;
+border-radius:30px;
+background:#38bdf8;
+color:#000;
+font-weight:600;
+cursor:pointer;
+transition:0.3s;
+}
+
+.ubmap-btn:hover{
+transform:scale(1.05);
+}
+
+/* SCROLL ANIMATION */
+
+.ubmap-fade{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.ubmap-fade.active{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.ubmap-card h2{
+font-size:32px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.ubmap-section{
+padding:90px 6%;
+}
+
+.ubmap-card{
+padding:35px;
+}
+
+.ubmap-card h2{
+font-size:26px;
+}
+
+.ubmap-stats{
+flex-direction:column;
+gap:20px;
+}
+
+}
+    </style>
+
+<script>
+
+    /* SCROLL REVEAL */
+    
+    const ubmapObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+    if(entry.isIntersecting){
+    entry.target.classList.add("active");
+    startCounters();
+    }
+    });
+    },{threshold:0.3});
+    
+    document.querySelectorAll(".ubmap-fade").forEach(el=>{
+    ubmapObserver.observe(el);
+    });
+    
+    
+    /* COUNTER ANIMATION */
+    
+    function startCounters(){
+    
+    document.querySelectorAll(".ub-counter").forEach(counter=>{
+    
+    let target = +counter.getAttribute("data-target");
+    let count = 0;
+    let speed = target/200;
+    
+    function update(){
+    
+    count += speed;
+    
+    if(count < target){
+    counter.innerText = Math.floor(count).toLocaleString();
+    requestAnimationFrame(update);
+    }else{
+    counter.innerText = target.toLocaleString();
+    }
+    
+    }
+    
+    update();
+    
+    });
+    
+    }
+    
+    </script>
+
+<!-- -------------------- -->
+
+<section class="stk-app-download">
+
+    <div class="stk-app-container">
+    
+    <!-- LEFT CONTENT -->
+    <div class="stk-app-content stk-fade">
+    
+    <h2>Download Our Ride App</h2>
+    
+    <p>
+    Book rides faster, track drivers in real time and enjoy seamless
+    travel experience directly from your phone.
+    </p>
+    
+    <div class="stk-store-buttons">
+    
+    <a href="404.html" class="stk-store-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+    </a>
+    
+    <a href="404.html" class="stk-store-btn">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+    </a>
+    
+    </div>
+    
+    <div class="stk-qr-box">
+    
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://example.com">
+    
+    <p>Scan to download</p>
+    
+    </div>
+    
+    </div>
+    
+    
+    <!-- RIGHT PHONE -->
+    <div class="stk-phone-area stk-fade">
+    
+    <div class="stk-phone">
+    
+    <img src="./taxi1.webp">
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+
+    <Style>
+        /* SECTION */
+
+.stk-app-download{
+padding:100px 8%;
+background:#f8fbff;
+font-family:Arial, sans-serif;
+overflow:hidden;
+}
+
+/* CONTAINER */
+
+.stk-app-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+flex-wrap:wrap;
+}
+
+/* LEFT CONTENT */
+
+.stk-app-content{
+flex:1;
+min-width:280px;
+}
+
+.stk-app-content h2{
+font-size:42px;
+margin-bottom:20px;
+color:#111;
+}
+
+.stk-app-content p{
+font-size:17px;
+color:#555;
+margin-bottom:30px;
+max-width:500px;
+line-height:1.6;
+}
+
+/* STORE BUTTONS */
+
+.stk-store-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.stk-store-btn img{
+height:55px;
+transition:0.3s;
+}
+
+.stk-store-btn:hover img{
+transform:scale(1.05);
+}
+
+/* QR BOX */
+
+.stk-qr-box{
+margin-top:10px;
+}
+
+.stk-qr-box img{
+width:120px;
+margin-bottom:8px;
+}
+
+.stk-qr-box p{
+font-size:14px;
+color:#444;
+}
+
+/* RIGHT PHONE */
+
+.stk-phone-area{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+min-width:280px;
+}
+
+.stk-phone{
+width:280px;
+border-radius:40px;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+animation:stkFloat 4s ease-in-out infinite;
+}
+
+.stk-phone img{
+width:100%;
+height:auto;
+display:block;
+animation:stkZoom 6s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes stkFloat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+/* ZOOM IN OUT */
+
+@keyframes stkZoom{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+/* LOAD ANIMATION */
+
+.stk-fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+
+.stk-fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.stk-app-container{
+flex-direction:column;
+text-align:center;
+}
+
+.stk-app-content p{
+margin:auto;
+}
+
+.stk-store-buttons{
+justify-content:center;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.stk-app-download{
+padding:70px 6%;
+}
+
+.stk-app-content h2{
+font-size:32px;
+}
+
+.stk-phone{
+width:220px;
+}
+
+}
+    </style>
+    <script>
+
+const stkElements = document.querySelectorAll(".stk-fade");
+
+function stkReveal(){
+
+stkElements.forEach((el,i)=>{
+
+setTimeout(()=>{
+
+const top = el.getBoundingClientRect().top;
+const trigger = window.innerHeight - 100;
+
+if(top < trigger){
+el.classList.add("show");
+}
+
+}, i*300);
+
+});
+
+}
+
+window.addEventListener("scroll", stkReveal);
+window.addEventListener("load", stkReveal);
+</script>
+
+<!-- <footer> -->
+    <footer class="footer">
+        <div class="footer-container">
+    
+            <!-- Logo / About -->
+            <div class="footer-box">
+                <img src="./logo.webp" alt="Stackly Logo" class="footer-logo"  style="height:60px;">
+   
+               
+                <!-- <p>We deliver secure, scalable and innovative IT services for global businesses.</p><br> -->
+    
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+    
+            <!-- Quick Links -->
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./index.html">Home</a></li>
+                    <li><a href="./about.html">About us</a></li>
+                    <li><a href="./ride.html">Ride</a></li>
+                    <li><a href="./blog.html">Blog</a></li>
+                     <li><a href="./contact.html">Contact</a></li>
+                     <li><a href="./dashboard.html">Dashboard</a></li>
+
+                </ul>
+            </div>
+    
+            <!-- Address -->
+            <div class="footer-box">
+                <h3>Our Address</h3>
+                <p>
+                    MMR complex.<br>
+                    chinna tirupathi kovil street,<br>
+                    salem,Tamil nadu-636008<br>
+                    <!-- Bengaluru, Karnataka – 560066<br> -->
+                    India<br><br>
+    
+                    <strong>Phone:</strong> +91 98765 43210<br>
+                    <strong>Email:</strong> support@thestackly.com
+                </p>
+            </div>
+    
+            <!-- Google Map -->
+            <div class="footer-box">
+                <h3>Location</h3>
+                <iframe 
+                src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+    
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 stackly | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    
+
+
+<script src="./script.js"></script>
+</body>
+</html>

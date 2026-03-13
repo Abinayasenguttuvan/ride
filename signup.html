@@ -1,0 +1,272 @@
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+
+/* RESET */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+/* BACKGROUND */
+
+body{
+min-height:100vh;
+background:url("./meet2.webp") no-repeat center/cover;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+body::before{
+content:"";
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.6);
+top:0;
+left:0;
+z-index:-1;
+}
+
+/* BACK HOME */
+
+.top-home{
+position:absolute;
+top:20px;
+left:20px;
+color:#fff;
+text-decoration:none;
+font-size:18px;
+}
+
+/* CONTAINER */
+
+.signup-container{
+width:400px;
+background:#fff;
+padding:40px;
+border-radius:10px;
+text-align:center;
+}
+
+.signup-container input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+}
+
+/* PASSWORD */
+
+.password-box{
+position:relative;
+}
+
+.eye-icon{
+position:absolute;
+right:10px;
+top:50%;
+transform:translateY(-50%);
+cursor:pointer;
+}
+
+/* BUTTON */
+
+button{
+width:100%;
+padding:12px;
+background: green;
+color:#fff;
+border:none;
+margin:10px 0;
+cursor:pointer;
+}
+
+#error{
+color:red;
+font-size:14px;
+}
+
+/* SOCIAL */
+
+.social-btn{
+background:green;
+margin:5px 0;
+}
+
+/* LOGOS */
+
+.logos{
+display:flex;
+justify-content:center;
+gap:10px;
+margin-top:20px;
+flex-wrap:wrap;
+}
+
+.logos img{
+width:40px;
+opacity:0;
+transform:translateY(30px);
+transition:.5s;
+}
+
+.logos img.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:1024px){
+.signup-container{
+width:70%;
+}
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+.signup-container{
+width:90%;
+padding:20px;
+}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- BACK HOME -->
+<a href="index.html" class="top-home">
+<i class="fa fa-home"></i> Home
+</a>
+
+<div class="signup-container">
+
+<h2>Create Account</h2>
+
+<input type="text" id="name" placeholder="Enter Full Name">
+<input type="email" id="email" placeholder="Enter Mail ID">
+
+<div class="password-box">
+<input type="password" id="password" placeholder="Enter Password">
+<i class="fa-solid fa-eye-slash eye-icon"
+onclick="togglePassword('password',this)"></i>
+</div>
+
+<div class="password-box">
+<input type="password" id="confirm" placeholder="Confirm Password">
+<i class="fa-solid fa-eye-slash eye-icon"
+onclick="togglePassword('confirm',this)"></i>
+</div>
+
+<p id="error"></p>
+
+<button onclick="signup()">SIGN UP</button>
+
+<div class="or">OR</div>
+<a href="./404.html">
+<button class="social-btn">
+   
+<i class="fab fa-google"></i> Connect with Google
+</a>
+</button>
+
+<button class="social-btn">
+    <a href="./404.html">
+<i class="fab fa-facebook"></i> Connect with Facebook
+</a>
+</button>
+
+<button class="social-btn">
+    <a href="./404.html">
+<i class="fab fa-apple"></i> Connect with Apple
+</a>
+</button>
+
+<p>
+Already have an account?
+<a href="login.html">Login</a>
+</p>
+
+</div>
+
+<div class="logos">
+    <a href="./404.html">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732221.png">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968764.png">
+<img src="https://cdn-icons-png.flaticon.com/512/888/888879.png">
+<img src="https://cdn-icons-png.flaticon.com/512/5968/5968852.png">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732229.png">
+</a>
+</div>
+
+<script>
+
+/* SHOW PASSWORD */
+
+function togglePassword(id,icon){
+
+let input=document.getElementById(id);
+
+if(input.type==="password"){
+input.type="text";
+icon.classList.replace("fa-eye-slash","fa-eye");
+}else{
+input.type="password";
+icon.classList.replace("fa-eye","fa-eye-slash");
+}
+
+}
+
+/* SIGNUP */
+
+function signup(){
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let pass=document.getElementById("password").value.trim();
+let confirm=document.getElementById("confirm").value.trim();
+let error=document.getElementById("error");
+
+if(name==="" || email==="" || pass==="" || confirm===""){
+error.innerText="Please fill all details";
+return;
+}
+
+if(pass!==confirm){
+error.innerText="Password not match";
+return;
+}
+
+window.location.href="404.html";
+
+}
+
+/* ICON ANIMATION */
+
+window.addEventListener("load",()=>{
+
+let icons=document.querySelectorAll(".logos img");
+
+icons.forEach((icon,index)=>{
+setTimeout(()=>{
+icon.classList.add("show");
+},index*500);
+});
+
+});
+
+</script>
+
+</body>
+</html>

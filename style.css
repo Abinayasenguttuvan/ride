@@ -1,0 +1,397 @@
+/* GLOBAL */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",sans-serif;
+    }
+    
+    body{
+    min-height:200vh;
+    background:#f5f7fb;
+    transition:0.4s;
+    }
+    
+    /* DARK MODE */
+    
+    body.dark{
+    background:#0f172a;
+    color:white;
+    }
+    
+    /* HEADER */
+    
+    .header{
+    
+    position:sticky;
+    top:0;
+    width:100%;
+    z-index:1000;
+    
+    background:rgba(255,255,255,0.75);
+    backdrop-filter:blur(14px);
+    
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    
+    transition:all .35s ease;
+    
+    }
+    
+    /* SHRINK NAVBAR */
+    
+    .header.shrink{
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    }
+    
+    /* NAV CONTAINER */
+    
+    .nav-container{
+    
+    max-width:1300px;
+    margin:auto;
+    
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    
+    padding:18px 20px;
+    transition:.3s;
+    
+    }
+    
+    .header.shrink .nav-container{
+    padding:10px 20px;
+    }
+    
+    /* LOGO */
+    
+    .logo img{
+    
+    height:45px;
+    transition:0.3s;
+    
+    }
+    
+    .header.shrink .logo img{
+    height:36px;
+    }
+    
+    /* NAV MENU */
+    
+    .nav-menu{
+    display:flex;
+    align-items:center;
+    gap:35px;
+    list-style:none;
+    }
+    
+    /* LINKS */
+    
+    .nav-menu a{
+    
+    position:relative;
+    text-decoration:none;
+    color:#333;
+    font-size:15px;
+    font-weight:500;
+    
+    padding-bottom:6px;
+    
+    }
+    
+    body.dark .nav-menu a{
+    color:#ddd;
+    }
+    
+    /* HOVER UNDERLINE */
+    
+    .nav-menu a::after{
+    
+    content:"";
+    position:absolute;
+    
+    left:0;
+    bottom:0;
+    
+    width:0%;
+    height:2px;
+    
+    background:linear-gradient(to top, #18173b, transparent);  
+    
+    transition:0.35s;
+    
+    }
+    
+    .nav-menu a:hover::after{
+    width:100%;
+    }
+    
+    /* ACTIVE */
+    
+    .nav-menu a.active{
+    color:linear-gradient(to top, #18173b, transparent);  
+    font-weight:600;
+    }
+    
+    .nav-menu a.active::after{
+    width:100%;
+    }
+    
+    /* DROPDOWN */
+    
+    .dropdown{
+    position:relative;
+    }
+    
+    .dropdown-menu{
+    
+    position:absolute;
+    
+    top:40px;
+    left:0;
+    
+    background:white;
+    
+    box-shadow:0 10px 30px rgba(0,0,0,0.08);
+    
+    border-radius:8px;
+    
+    width:160px;
+    
+    display:none;
+    flex-direction:column;
+    
+    padding:8px 0;
+    
+    }
+    
+    body.dark .dropdown-menu{
+    background:#1e293b;
+    }
+    
+    .dropdown-menu a{
+    padding:10px 15px;
+    font-size:14px;
+    }
+    
+    .dropdown:hover .dropdown-menu{
+    display:flex;
+    }
+    
+    /* BUTTONS */
+    
+    .nav-buttons{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    }
+    
+    /* LOGIN */
+    
+    .login-btn{
+    text-decoration:none;
+    color:#333;
+    font-weight:500;
+    }
+    
+    body.dark .login-btn{
+    color:#ddd;
+    }
+    
+    /* SIGNUP */
+    
+    .signup-btn{
+    background:linear-gradient(to top, #18173b, transparent);  
+    color:white;
+    padding:8px 18px;
+    border-radius:6px;
+    font-size:14px;
+    text-decoration:none;
+    transition:.3s;
+    }
+    
+    .signup-btn:hover{
+    background:linear-gradient(to top, #18173b, transparent);  
+    }
+    
+    /* DARK MODE ICON */
+    
+    .dark-toggle{
+    cursor:pointer;
+    font-size:20px;
+    }
+    
+    /* MOBILE */
+    
+    .menu-toggle{
+    display:none;
+    font-size:28px;
+    cursor:pointer;
+    }
+    
+    /* MOBILE RESPONSIVE */
+    
+    @media (max-width:900px){
+    
+    .menu-toggle{
+    display:block;
+    }
+    
+    .nav-menu{
+    
+    position:absolute;
+    
+    top:70px;
+    left:0;
+    
+    width:100%;
+    
+    background:white;
+    
+    flex-direction:column;
+    
+    align-items:flex-start;
+    
+    gap:15px;
+    
+    padding:20px;
+    
+    display:none;
+    
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+    
+    }
+    
+    body.dark .nav-menu{
+    background:linear-gradient(to top, #18173b, transparent);  
+    }
+    
+    .nav-menu.active{
+    display:flex;
+    }
+    
+    .dropdown-menu{
+    position:relative;
+    top:0;
+    box-shadow:none;
+    padding-left:15px;
+    }
+    
+    .dropdown:hover .dropdown-menu{
+    display:none;
+    }
+    
+    .dropdown.active .dropdown-menu{
+    display:flex;
+    }
+    
+    .nav-buttons{
+    margin-top:10px;
+    }
+    
+    }
+    
+    
+
+/* ================= FOOTER ================= */
+.footer {
+    background:linear-gradient(to top, #18173b, transparent);  
+    padding-top: 40px;
+    color: white;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+    flex-wrap: wrap;
+}
+
+/* Footer Boxes */
+.footer-box h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: black;
+}
+
+.footer-box p, 
+.footer-box a {
+    color: black;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.footer-box ul {
+    list-style: none;
+}
+
+.footer-box ul li {
+    margin-bottom: 8px;
+}
+
+.footer-box ul li a {
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-box ul li a:hover {
+    color: black;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    background: linear-gradient(to top, #18173b, transparent);  
+    padding: 15px 0;
+}
+
+.footer-social a {
+    display: inline-block;
+    margin-right: 12px;
+    font-size: 18px;
+    width: 38px;
+    height: 38px;
+    text-align: center;
+    line-height: 38px;
+    border-radius: 50%;
+    background: linear-gradient(to top, #18173b, transparent);  
+    color:rgb(73, 25, 25);
+    border: 1px solid rgb(73, 25, 25);
+    transition: 0.3s;
+}
+
+.footer-social a:hover {
+    background: linear-gradient(to top, #18173b, transparent);  
+    color: #000;
+    transform: translateY(-5px);
+}
+
+/* Map */
+.footer-box iframe {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    border: none;
+}
+
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+
+    
+    
+
+    .footer-box {
+        width: 45%;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 500px) {
+    .footer-box {
+        width: 100%;
+    }
+}
+
+

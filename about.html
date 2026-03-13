@@ -1,0 +1,1311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Stackly Ride </title>
+
+</head>
+
+
+<body>
+    
+
+<header class="header" id="header">
+
+<div class="nav-container">
+
+<!-- STACKLY LOGO -->
+
+<div class="logo">
+    <a href="./index.html">
+<img src="./logo.webp" alt="Stackly Logo"></a>
+</div>
+
+<div class="menu-toggle" id="menuToggle">☰</div>
+
+<ul class="nav-menu" id="navMenu">
+
+<li class="dropdown">
+
+<a href="./index.html" class="active">Home ▾</a>
+
+<div class="dropdown-menu">
+<a href="./index.html">Home 1</a>
+<a href="./home2.html">Home 2</a>
+</div>
+
+</li>
+
+<li><a href="./about.html">About us</a></li>
+<li><a href="./ride.html">Ride</a></li>
+<li><a href="./contact.html">Contact</a></li>
+<li><a href="./dashboard.html">Dashboard</a></li>
+<li class="nav-buttons">
+
+
+<a href="login.html" class="login-btn">Login</a>
+<a href="signup.html" class="signup-btn">Sign Up</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+
+
+
+<section class="abt-hero">
+
+    <!-- BACKGROUND VIDEO -->
+    <video autoplay muted loop playsinline class="abt-bg-video">
+    <source src="./car1.mp4" type="video/mp4">
+    </video>
+    
+    <div class="abt-overlay"></div>
+    
+    <!-- HERO CONTENT SLIDER -->
+    <div class="abt-content-slider">
+    
+    <div class="abt-slide active">
+    
+    <h1>Moving Cities Forward</h1>
+    
+    <p>
+    We connect riders and drivers through smart technology,
+    making transportation faster, safer and more affordable
+    for everyone.
+    </p>
+    
+    <div class="abt-buttons">
+    <a href="404.html" class="abt-btn">Book a Ride</a>
+    <a href="404.html" class="abt-btn-outline">Become a Driver</a>
+    </div>
+    
+    </div>
+    
+    
+    <div class="abt-slide">
+    
+    <h1>Reliable Transportation</h1>
+    
+    <p>
+    Our platform ensures quick pickups, transparent pricing
+    and seamless ride experiences across cities.
+    </p>
+    
+    <div class="abt-buttons">
+    <a href="404.html" class="abt-btn">Explore Services</a>
+    </div>
+    
+    </div>
+    
+    
+    <div class="abt-slide">
+    
+    <h1>Empowering Drivers</h1>
+    
+    <p>
+    Thousands of drivers earn flexible income with our
+    platform while providing safe transportation to riders.
+    </p>
+    
+    <div class="abt-buttons">
+    <a href="404.html" class="abt-btn">Join the Network</a>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+
+    <style>
+        /* HERO SECTION */
+
+.abt-hero{
+position:relative;
+height:90vh;
+width:100%;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+color:white;
+}
+
+/* VIDEO */
+
+.abt-bg-video{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+}
+
+/* DARK OVERLAY */
+
+.abt-overlay{
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.55);
+z-index:-1;
+}
+
+/* CONTENT */
+
+.abt-content-slider{
+max-width:900px;
+text-align:center;
+padding:20px;
+}
+
+.abt-slide{
+display:none;
+animation:fadeSlide 1s ease;
+}
+
+.abt-slide.active{
+display:block;
+}
+
+.abt-slide h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.abt-slide p{
+font-size:18px;
+line-height:1.7;
+margin-bottom:30px;
+}
+
+/* BUTTONS */
+
+.abt-buttons{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.abt-btn{
+background:#ffcc00;
+color:black;
+padding:14px 28px;
+border-radius:30px;
+text-decoration:none;
+font-weight:bold;
+transition:0.3s;
+}
+
+.abt-btn:hover{
+background:#ffd633;
+}
+
+.abt-btn-outline{
+border:2px solid white;
+padding:14px 28px;
+border-radius:30px;
+color:white;
+text-decoration:none;
+transition:0.3s;
+}
+
+.abt-btn-outline:hover{
+background:white;
+color:black;
+}
+
+/* SLIDE ANIMATION */
+
+@keyframes fadeSlide{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ========================= */
+/* RESPONSIVE MEDIA QUERIES */
+/* ========================= */
+
+
+/* LAPTOP */
+
+@media(max-width:1200px){
+
+.abt-slide h1{
+font-size:42px;
+}
+
+}
+
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.abt-hero{
+height:80vh;
+}
+
+.abt-slide h1{
+font-size:36px;
+}
+
+.abt-slide p{
+font-size:17px;
+}
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.abt-hero{
+height:75vh;
+padding:20px;
+}
+
+.abt-slide h1{
+font-size:28px;
+}
+
+.abt-slide p{
+font-size:15px;
+}
+
+.abt-buttons{
+flex-direction:column;
+align-items:center;
+}
+
+.abt-btn,
+.abt-btn-outline{
+width:200px;
+text-align:center;
+}
+
+}
+    </style>
+
+    <script>
+
+const abtSlides = document.querySelectorAll(".abt-slide");
+
+let abtIndex = 0;
+
+function abtSlideShow(){
+
+abtSlides.forEach(slide=>{
+slide.classList.remove("active");
+});
+
+abtIndex++;
+
+if(abtIndex > abtSlides.length){
+abtIndex = 1;
+}
+
+abtSlides[abtIndex-1].classList.add("active");
+
+}
+
+setInterval(abtSlideShow,4000);
+</script>
+
+
+
+<section class="mvx-section">
+
+    <!-- MISSION -->
+    
+    <div class="mvx-row">
+    
+    <div class="mvx-images">
+    
+    <div class="mvx-img-square">
+    <img src="./cab .webp" alt="Mission Image">
+    </div>
+    
+    <div class="mvx-img-rect">
+    <img src="./auto.webp" alt="Mission Image">
+    </div>
+    
+    </div>
+    
+    <div class="mvx-content">
+    
+    <h2>Our Mission</h2>
+    
+    <p>
+    Our mission is to transform urban mobility by providing fast,
+    affordable, and reliable transportation for everyone. Through
+    innovative technology and a strong driver network, we make
+    daily commuting seamless and accessible.
+    </p>
+    
+    <a href="404.html" class="mvx-btn">Learn More</a>
+    
+    </div>
+    
+    </div>
+    
+    
+    <!-- VISION -->
+    
+    <div class="mvx-row mvx-reverse">
+    
+    <div class="mvx-images">
+    
+    <div class="mvx-img-square">
+    <img src="./auto1.webp" alt="Vision Image">
+    </div>
+    
+    <div class="mvx-img-rect">
+    <img src="./taxi.webp" alt="Vision Image">
+    </div>
+    
+    </div>
+    
+    <div class="mvx-content">
+    
+    <h2>Our Vision</h2>
+    
+    <p>
+    We envision cities where transportation is smart, sustainable,
+    and accessible to all. By connecting riders and drivers through
+    technology, we aim to create a future where mobility empowers
+    communities and drives economic growth.
+    </p>
+    
+    <a href="404.html" class="mvx-btn">Explore Vision</a>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+
+
+    <style>
+        /* SECTION */
+
+.mvx-section{
+width:100%;
+padding:80px 8%;
+background:#f8fafc;
+display:flex;
+flex-direction:column;
+gap:80px;
+}
+
+/* ROW */
+
+.mvx-row{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+flex-wrap:wrap;
+}
+
+/* REVERSE FOR VISION */
+
+.mvx-reverse{
+flex-direction:row-reverse;
+}
+
+/* IMAGE AREA */
+
+.mvx-images{
+display:flex;
+gap:20px;
+align-items:center;
+}
+
+/* SQUARE IMAGE */
+
+.mvx-img-square{
+width:220px;
+height:220px;
+overflow:hidden;
+border-radius:16px;
+}
+
+.mvx-img-square img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* RECTANGLE IMAGE */
+
+.mvx-img-rect{
+width:300px;
+height:200px;
+overflow:hidden;
+border-radius:16px;
+}
+
+.mvx-img-rect img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+/* CONTENT */
+
+.mvx-content{
+max-width:520px;
+}
+
+.mvx-content h2{
+font-size:36px;
+margin-bottom:20px;
+color:#111;
+}
+
+.mvx-content p{
+font-size:17px;
+line-height:1.7;
+margin-bottom:25px;
+color:#444;
+}
+
+/* BUTTON */
+
+.mvx-btn{
+display:inline-block;
+padding:12px 28px;
+background:#111;
+color:white;
+text-decoration:none;
+border-radius:30px;
+transition:.3s;
+}
+
+.mvx-btn:hover{
+background:#333;
+}
+
+/* ====================== */
+/* RESPONSIVE MEDIA QUERY */
+/* ====================== */
+
+
+/* LAPTOP */
+
+@media (max-width:1200px){
+
+.mvx-img-square{
+width:200px;
+height:200px;
+}
+
+.mvx-img-rect{
+width:260px;
+height:180px;
+}
+
+}
+
+
+/* TABLET */
+
+@media (max-width:992px){
+
+.mvx-row{
+flex-direction:column;
+text-align:center;
+}
+
+.mvx-reverse{
+flex-direction:column;
+}
+
+.mvx-images{
+justify-content:center;
+}
+
+.mvx-content{
+max-width:100%;
+}
+
+}
+
+
+/* MOBILE */
+
+@media (max-width:600px){
+
+.mvx-section{
+padding:60px 6%;
+gap:60px;
+}
+
+.mvx-images{
+flex-direction:column;
+}
+
+.mvx-img-square{
+width:180px;
+height:180px;
+}
+
+.mvx-img-rect{
+width:220px;
+height:160px;
+}
+
+.mvx-content h2{
+font-size:28px;
+}
+
+.mvx-content p{
+font-size:15px;
+}
+
+}
+    </style>
+
+
+
+<section class="rbd-pricing-section">
+
+    <h2 class="rbd-title">Choose Your Ride</h2>
+    
+    <div class="rbd-input-area">
+    
+    <input type="number" id="rbd-distance" placeholder="Distance (km)">
+    <input type="number" id="rbd-time" placeholder="ETA Time (minutes)">
+    
+    <button onclick="rbdCalculateRide()">Calculate Ride</button>
+    
+    </div>
+    
+    
+    <div class="rbd-grid">
+    
+    <!-- BIKE -->
+    
+    <div class="rbd-card rbd-reveal" data-rate="8">
+    
+    <div class="rbd-vehicle">
+    <img src="./bike .webp">
+    </div>
+    
+    <h3>Bike Ride</h3>
+    
+    <div class="rbd-route">
+    <span></span>
+    <div class="rbd-line"></div>
+    <span></span>
+    </div>
+    
+    <p>ETA: <b class="rbd-eta">--</b> min</p>
+    <p>Distance: <b class="rbd-km">--</b> km</p>
+    
+    <p class="rbd-price">₹<span class="rbd-cost">--</span></p>
+    
+    <button onclick="rbdGo404()">Book Now</button>
+    
+    </div>
+    
+    
+    
+    <!-- AUTO -->
+    
+    <div class="rbd-card rbd-reveal" data-rate="12">
+    
+    <div class="rbd-vehicle">
+    <img src="./auto.webp">
+    </div>
+    
+    <h3>Auto Ride</h3>
+    
+    <div class="rbd-route">
+    <span></span>
+    <div class="rbd-line"></div>
+    <span></span>
+    </div>
+    
+    <p>ETA: <b class="rbd-eta">--</b> min</p>
+    <p>Distance: <b class="rbd-km">--</b> km</p>
+    
+    <p class="rbd-price">₹<span class="rbd-cost">--</span></p>
+    
+    <button onclick="rbdGo404()">Book Now</button>
+    
+    </div>
+    
+    
+    
+    <!-- CAR -->
+    
+    <div class="rbd-card rbd-reveal" data-rate="18">
+    
+    <div class="rbd-vehicle">
+    <img src="./cab .webp">
+    </div>
+    
+    <h3>Car Ride</h3>
+    
+    <div class="rbd-route">
+    <span></span>
+    <div class="rbd-line"></div>
+    <span></span>
+    </div>
+    
+    <p>ETA: <b class="rbd-eta">--</b> min</p>
+    <p>Distance: <b class="rbd-km">--</b> km</p>
+    
+    <p class="rbd-price">₹<span class="rbd-cost">--</span></p>
+    
+    <button onclick="rbdGo404()">Book Now</button>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+    <style>
+        /* SECTION BACKGROUND */
+
+.rbd-pricing-section{
+
+padding:120px 8%;
+
+background:
+linear-gradient(rgba(10,10,40,0.8),rgba(10,10,40,0.9)),
+url("./taxi.webp");
+
+background-size:cover;
+background-position:center;
+
+color:white;
+
+text-align:center;
+
+}
+
+/* TITLE */
+
+.rbd-title{
+
+font-size:40px;
+margin-bottom:40px;
+
+}
+
+/* INPUT AREA */
+
+.rbd-input-area{
+
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:60px;
+flex-wrap:wrap;
+
+}
+
+.rbd-input-area input{
+
+padding:12px 15px;
+border-radius:8px;
+border:none;
+width:180px;
+
+}
+
+.rbd-input-area button{
+
+padding:12px 25px;
+border:none;
+background:#ef4444;
+color:white;
+border-radius:25px;
+cursor:pointer;
+
+}
+
+/* GRID */
+
+.rbd-grid{
+
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:35px;
+max-width:1200px;
+margin:auto;
+
+}
+
+/* CARD */
+
+.rbd-card{
+
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(10px);
+
+padding:40px;
+border-radius:20px;
+
+transition:0.4s;
+
+opacity:0;
+transform:translateY(60px);
+
+}
+
+/* SHOW ANIMATION */
+
+.rbd-card.rbd-show{
+
+opacity:1;
+transform:translateY(0);
+
+}
+
+/* HOVER */
+
+.rbd-card:hover{
+
+transform:translateY(-12px);
+box-shadow:0 25px 45px rgba(0,0,0,0.4);
+
+}
+
+/* VEHICLE ICON */
+
+.rbd-vehicle{
+
+height:70px;
+margin-bottom:10px;
+animation:rbdSlide 4s infinite ease-in-out;
+
+}
+
+.rbd-vehicle img{
+
+height:100%;
+
+}
+
+/* SLIDE ANIMATION */
+
+@keyframes rbdSlide{
+
+0%{transform:translateX(0)}
+
+50%{transform:translateX(20px)}
+
+100%{transform:translateX(0)}
+
+}
+
+/* ROUTE PREVIEW */
+
+.rbd-route{
+
+display:flex;
+align-items:center;
+justify-content:center;
+margin:15px 0;
+
+}
+
+.rbd-route span{
+
+width:10px;
+height:10px;
+background:#ef4444;
+border-radius:50%;
+
+}
+
+.rbd-line{
+
+height:3px;
+width:70px;
+background:linear-gradient(90deg,#ef4444,#22c55e);
+margin:0 6px;
+animation:rbdRoute 2s linear infinite;
+
+}
+
+@keyframes rbdRoute{
+
+0%{background-position:0}
+
+100%{background-position:100px}
+
+}
+
+/* PRICE */
+
+.rbd-price{
+
+font-size:34px;
+color:#22c55e;
+margin:10px 0;
+
+}
+
+/* BUTTON */
+
+.rbd-card button{
+
+margin-top:10px;
+padding:10px 22px;
+background:#ef4444;
+border:none;
+color:white;
+border-radius:20px;
+cursor:pointer;
+
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.rbd-grid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.rbd-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.rbd-title{
+
+font-size:28px;
+
+}
+
+}
+    </style>
+
+<script>
+
+    /* 404 REDIRECT */
+    
+    function rbdGo404(){
+    
+    window.location.href="404.html"
+    
+    }
+    
+    
+    /* PRICE CALCULATION */
+    
+    function rbdCalculateRide(){
+    
+    let km=document.getElementById("rbd-distance").value
+    let time=document.getElementById("rbd-time").value
+    
+    if(km=="" || time==""){
+    
+    alert("Please fill distance and ETA")
+    return
+    
+    }
+    
+    document.querySelectorAll(".rbd-card").forEach(card=>{
+    
+    let rate=card.getAttribute("data-rate")
+    
+    let price=(km*rate)+(time*2)
+    
+    card.querySelector(".rbd-cost").innerText=Math.round(price)
+    card.querySelector(".rbd-eta").innerText=time
+    card.querySelector(".rbd-km").innerText=km
+    
+    })
+    
+    }
+    
+    
+    /* SCROLL REVEAL */
+    
+    const rbdReveal=document.querySelectorAll(".rbd-reveal")
+    
+    const rbdObserver=new IntersectionObserver(entries=>{
+    
+    entries.forEach((entry,index)=>{
+    
+    if(entry.isIntersecting){
+    
+    setTimeout(()=>{
+    
+    entry.target.classList.add("rbd-show")
+    
+    },index*200)
+    
+    }
+    
+    })
+    
+    },{threshold:0.2})
+    
+    rbdReveal.forEach(el=>{
+    
+    rbdObserver.observe(el)
+    
+    })
+    
+    </script>
+
+
+<section class="stk-app-download">
+
+    <div class="stk-app-container">
+    
+    <!-- LEFT CONTENT -->
+    <div class="stk-app-content stk-fade">
+    
+    <h2>Download Our Ride App</h2>
+    
+    <p>
+    Book rides faster, track drivers in real time and enjoy seamless
+    travel experience directly from your phone.
+    </p>
+    
+    <div class="stk-store-buttons">
+    
+    <a href="404.html" class="stk-store-btn">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
+    </a>
+    
+    <a href="404.html" class="stk-store-btn">
+    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
+    </a>
+    
+    </div>
+    
+    <div class="stk-qr-box">
+    
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://example.com">
+    
+    <p>Scan to download</p>
+    
+    </div>
+    
+    </div>
+    
+    
+    <!-- RIGHT PHONE -->
+    <div class="stk-phone-area stk-fade">
+    
+    <div class="stk-phone">
+    
+    <img src="./taxi1.webp">
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+
+    <Style>
+        /* SECTION */
+
+.stk-app-download{
+padding:100px 8%;
+background:#f8fbff;
+font-family:Arial, sans-serif;
+overflow:hidden;
+}
+
+/* CONTAINER */
+
+.stk-app-container{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:60px;
+flex-wrap:wrap;
+}
+
+/* LEFT CONTENT */
+
+.stk-app-content{
+flex:1;
+min-width:280px;
+}
+
+.stk-app-content h2{
+font-size:42px;
+margin-bottom:20px;
+color:#111;
+}
+
+.stk-app-content p{
+font-size:17px;
+color:#555;
+margin-bottom:30px;
+max-width:500px;
+line-height:1.6;
+}
+
+/* STORE BUTTONS */
+
+.stk-store-buttons{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+margin-bottom:30px;
+}
+
+.stk-store-btn img{
+height:55px;
+transition:0.3s;
+}
+
+.stk-store-btn:hover img{
+transform:scale(1.05);
+}
+
+/* QR BOX */
+
+.stk-qr-box{
+margin-top:10px;
+}
+
+.stk-qr-box img{
+width:120px;
+margin-bottom:8px;
+}
+
+.stk-qr-box p{
+font-size:14px;
+color:#444;
+}
+
+/* RIGHT PHONE */
+
+.stk-phone-area{
+flex:1;
+display:flex;
+justify-content:center;
+align-items:center;
+min-width:280px;
+}
+
+.stk-phone{
+width:280px;
+border-radius:40px;
+overflow:hidden;
+box-shadow:0 25px 60px rgba(0,0,0,0.25);
+animation:stkFloat 4s ease-in-out infinite;
+}
+
+.stk-phone img{
+width:100%;
+height:auto;
+display:block;
+animation:stkZoom 6s ease-in-out infinite;
+}
+
+/* FLOAT ANIMATION */
+
+@keyframes stkFloat{
+0%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+100%{transform:translateY(0)}
+}
+
+/* ZOOM IN OUT */
+
+@keyframes stkZoom{
+0%{transform:scale(1)}
+50%{transform:scale(1.1)}
+100%{transform:scale(1)}
+}
+
+/* LOAD ANIMATION */
+
+.stk-fade{
+opacity:0;
+transform:translateY(40px);
+transition:1s ease;
+}
+
+.stk-fade.show{
+opacity:1;
+transform:translateY(0);
+}
+
+/* TABLET */
+
+@media(max-width:992px){
+
+.stk-app-container{
+flex-direction:column;
+text-align:center;
+}
+
+.stk-app-content p{
+margin:auto;
+}
+
+.stk-store-buttons{
+justify-content:center;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.stk-app-download{
+padding:70px 6%;
+}
+
+.stk-app-content h2{
+font-size:32px;
+}
+
+.stk-phone{
+width:220px;
+}
+
+}
+    </style>
+    <script>
+
+const stkElements = document.querySelectorAll(".stk-fade");
+
+function stkReveal(){
+
+stkElements.forEach((el,i)=>{
+
+setTimeout(()=>{
+
+const top = el.getBoundingClientRect().top;
+const trigger = window.innerHeight - 100;
+
+if(top < trigger){
+el.classList.add("show");
+}
+
+}, i*300);
+
+});
+
+}
+
+window.addEventListener("scroll", stkReveal);
+window.addEventListener("load", stkReveal);
+</script>
+<!-- <footer> -->
+    <footer class="footer">
+        <div class="footer-container">
+    
+            <!-- Logo / About -->
+            <div class="footer-box">
+                <img src="./logo.webp" alt="Stackly Logo" class="footer-logo"  style="height:60px;">
+   
+               
+                <!-- <p>We deliver secure, scalable and innovative IT services for global businesses.</p><br> -->
+    
+                <!-- Social Icons -->
+                <div class="footer-social">
+                    <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="./404.html"><i class="fa-brands fa-x-twitter"></i></a>
+                </div>
+            </div>
+    
+            <!-- Quick Links -->
+            <div class="footer-box">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="./about.html">About us</a></li>
+<li><a href="./ride.html">Ride</a></li>
+<li><a href="./contact.html">Contact</a></li>
+<li><a href="./dashboard.html">Dashboard</a></li>
+
+                </ul>
+            </div>
+    
+            <!-- Address -->
+            <div class="footer-box">
+                <h3>Our Address</h3>
+                <p>
+                    MMR complex.<br>
+                    chinna tirupathi kovil street,<br>
+                    salem,Tamil nadu-636008<br>
+                    <!-- Bengaluru, Karnataka – 560066<br> -->
+                    India<br><br>
+    
+                    <strong>Phone:</strong> +91 98765 43210<br>
+                    <strong>Email:</strong> support@thestackly.com
+                </p>
+            </div>
+    
+            <!-- Google Map -->
+            <div class="footer-box">
+                <h3>Location</h3>
+                <iframe 
+                src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+    
+        </div>
+    
+        <div class="footer-bottom">
+            <p>© 2025 stackly | All Rights Reserved</p>
+        </div>
+    </footer>
+
+    
+
+
+<script src="./script.js"></script>
+</body>
+</html>
+

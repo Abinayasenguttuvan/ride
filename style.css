@@ -16,7 +16,7 @@
     /* DARK MODE */
     
     body.dark{
-    background:#0f172a;
+    background:#18173b;
     color:white;
     }
     
@@ -117,7 +117,7 @@
     width:0%;
     height:2px;
     
-    background:linear-gradient(to top, #18173b, transparent);  
+    background:#18173b;
     
     transition:0.35s;
     
@@ -130,7 +130,8 @@
     /* ACTIVE */
     
     .nav-menu a.active{
-    color:linear-gradient(to top, #18173b, transparent);  
+        color:white;
+    color:#18173b;
     font-weight:600;
     }
     
@@ -296,7 +297,7 @@
 
 /* ================= FOOTER ================= */
 .footer {
-    background:linear-gradient(to top, #18173b, transparent);  
+    background: #18173b;
     padding-top: 40px;
     color: white;
 }
@@ -312,12 +313,12 @@
 .footer-box h3 {
     margin-bottom: 15px;
     font-size: 20px;
-    color: black;
+    color:  whtie;
 }
 
 .footer-box p, 
 .footer-box a {
-    color: black;
+    color: white;
     font-size: 14px;
     line-height: 1.6;
 }
@@ -342,7 +343,7 @@
 
 .footer-bottom {
     text-align: center;
-    background: linear-gradient(to top, #18173b, transparent);  
+    background: #18173b;
     padding: 15px 0;
 }
 
@@ -355,15 +356,15 @@
     text-align: center;
     line-height: 38px;
     border-radius: 50%;
-    background: linear-gradient(to top, #18173b, transparent);  
+    background: white;
     color:rgb(73, 25, 25);
     border: 1px solid rgb(73, 25, 25);
     transition: 0.3s;
 }
 
 .footer-social a:hover {
-    background: linear-gradient(to top, #18173b, transparent);  
-    color: #000;
+    background: white;  
+    color: black;
     transform: translateY(-5px);
 }
 

@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<title>Stackly Ride</title>
+
+</head>
+
+
+<body>
+    
+
+<header class="header" id="header">
+
+<div class="nav-container">
+
+<!-- STACKLY LOGO -->
+
+<div class="logo">
+    <a href="./index.html">
+<img src="./logo.webp" alt="Stackly Logo"></a>
+</div>
+
+<div class="menu-toggle" id="menuToggle">☰</div>
+
+<ul class="nav-menu" id="navMenu">
+
+<li class="dropdown">
+
+<a href="./index.html" class="active">Home ▾</a>
+
+<div class="dropdown-menu">
+<a href="./index.html">Home 1</a>
+<a href="./home2.html">Home 2</a>
+</div>
+
+</li>
+
+<li><a href="./about.html">About us</a></li>
+<li><a href="./ride.html">Ride</a></li>
+
+<li><a href="./contact.html">Contact</a></li>
+<li><a href="./dashboard.html">Dashboard</a></li>
+<li class="nav-buttons">
+
+
+<a href="login.html" class="login-btn">Login</a>
+<a href="signup.html" class="signup-btn">Sign Up</a>
+
+</li>
+
+</ul>
+
+</div>
+
+</header>
+
+<section class="ab-hero-wave-section">
+
+    <div class="ab-hero-overlay"></div>
+    
+    <div class="ab-hero-container">
+    
+    <h1 class="ab-hero-title">Contact</h1>
+    
+    <div class="ab-hero-breadcrumb">
+    
+    <a href="home2.html">Home</a>
+    <span>→</span>
+    <span>Contact</span>
+    
+    </div>
+    
+    </div>
+    
+    <!-- WAVE SHAPE -->
+    
+    <div class="ab-hero-wave">
+    
+    <svg viewBox="0 0 1440 200" preserveAspectRatio="none">
+    
+    <path 
+    d="M0,100 C300,180 900,20 1440,120 L1440,200 L0,200 Z"
+    fill="#ffffff">
+    </path>
+    
+    </svg>
+    
+    </div>
+    
+    </section>
+
+    <Style>
+        /* HERO SECTION */
+
+.ab-hero-wave-section{
+
+position:relative;
+height:420px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+
+background-image:url("./taxi.webp");
+background-size:cover;
+background-position:center;
+
+color:white;
+overflow:hidden;
+
+}
+
+/* OVERLAY */
+
+.ab-hero-overlay{
+
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+
+background:linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.65)
+);
+
+}
+
+/* CONTENT */
+
+.ab-hero-container{
+
+position:relative;
+z-index:2;
+
+}
+
+.ab-hero-title{
+
+font-size:48px;
+font-weight:700;
+margin-bottom:10px;
+
+}
+
+/* BREADCRUMB */
+
+.ab-hero-breadcrumb{
+
+font-size:18px;
+
+}
+
+.ab-hero-breadcrumb a{
+
+color:#ffffff;
+text-decoration:none;
+font-weight:500;
+
+}
+
+.ab-hero-breadcrumb a:hover{
+
+color: rgb(46, 217, 46);
+
+}
+
+.ab-hero-breadcrumb span{
+
+margin:0 6px;
+
+}
+
+/* WAVE */
+
+.ab-hero-wave{
+
+position:absolute;
+bottom:-1px;
+left:0;
+width:100%;
+line-height:0;
+
+}
+
+.ab-hero-wave svg{
+
+width:100%;
+height:120px;
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:992px){
+
+.ab-hero-title{
+font-size:36px;
+}
+
+}
+
+@media(max-width:600px){
+
+.ab-hero-title{
+font-size:28px;
+}
+
+.ab-hero-wave-section{
+height:340px;
+}
+
+.ab-hero-breadcrumb{
+font-size:16px;
+}
+
+}
+    </Style>
+
+
+<!-- CONTACT SECTION -->
+<section class="contact-section">
+    <div class="contact-container">
+  
+      <!-- Header -->
+      <div class="contact-header">
+        <h2>Contact Us</h2>
+        
+      </div>
+  
+      <!-- Contact Info -->
+      <div class="contact-info-grid">
+  
+        <!-- Email -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-regular fa-envelope"></i>
+          </div>
+          <h4>Email Address</h4>
+          <p>hello@yourcompany.com</p>
+          <p>support@yourcompany.com</p>
+        </div>
+  
+        <!-- Phone -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-phone"></i>
+          </div>
+          <h4>Phone Number</h4>
+          <p>+91 98765 43210</p>
+          <p>+91 91234 56789</p>
+        </div>
+  
+        <!-- Location -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-solid fa-location-dot"></i>
+          </div>
+          <h4>Office Location</h4>
+          <p>salem, Tamil Nadu</p>
+          <p>India</p>
+        </div>
+  
+        <!-- Work Time -->
+        <div class="contact-card">
+          <div class="contact-icon">
+            <i class="fa-regular fa-clock"></i>
+          </div>
+          <h4>Working Hours</h4>
+          <p>Mon – Fri: 9:00 AM – 6:00 PM</p>
+          <p>Sat: 9:00 AM – 1:00 PM</p>
+          <p>Sun: 9:00 AM – 1:00 PM</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  <!-- CONTACT FORM SECTION -->
+  <section class="contact-form-section">
+    <div class="contact-wrapper">
+  
+      <!-- LEFT CONTENT -->
+      <div class="contact-left">
+        
+        <span class="contact-tag">CONTACT</span>
+        <h2>Get In Touch With Us</h2>
+        
+  <form class="contact-form" id="contactForm" novalidate>
+  
+    <div class="form-row">
+      <div class="field">
+        <input type="text" id="name" placeholder="Name">
+        <small class="error"></small>
+      </div>
+  
+      <div class="field">
+        <input type="email" id="email" placeholder="Email">
+        <small class="error"></small>
+      </div>
+    </div>
+  
+    <div class="form-row">
+      <div class="field">
+        <input type="text" id="phone" placeholder="Phone Number">
+        <small class="error"></small>
+      </div>
+  
+      <div class="field">
+        <input type="text" id="subject" placeholder="Subject">
+        <small class="error"></small>
+      </div>
+    </div>
+  
+    <div class="field">
+      <textarea id="message" placeholder="Message"></textarea>
+      <small class="error"></small>
+    </div>
+  
+    <button type="submit">Send Message</button>
+  </form>
+      </div>
+  
+      <!-- RIGHT IMAGE -->
+      <div class="contact-right">
+        <div class="image-box">
+          <img src="./taxi.webp" alt="Contact Team">
+        </div>
+      </div>
+  
+    </div>
+  
+    <div class="map-box">
+    <iframe
+      src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    
+  </div>
+  </section>
+  <style>
+    *{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+/* HERO SECTION */
+
+.contact-hero{
+width:100%;
+height:65vh;
+background-size:cover;
+background-position:center;
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+transition:1s;
+}
+
+.hero-overlay{
+width:100%;
+height:100%;
+/* background:rgba(0,0,0,0.6); */
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+padding:20px;
+}
+
+.hero-overlay h1{
+font-size:48px;
+margin-bottom:10px;
+}
+
+.hero-overlay p{
+font-size:18px;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+padding:60px 20px;
+}
+
+.contact-header{
+text-align:center;
+margin-bottom:40px;
+}
+
+.contact-header h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.contact-info-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:20px;
+}
+
+.contact-card{
+background:#f5f5f5;
+padding:20px;
+text-align:center;
+border-radius:10px;
+}
+
+.contact-icon{
+font-size:30px;
+margin-bottom:10px;
+}
+
+/* CONTACT FORM */
+
+.contact-form-section{
+padding:60px 20px;
+}
+
+.contact-wrapper{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+flex-wrap:wrap;
+}
+
+.contact-left{
+flex:1;
+position:relative;
+}
+
+.contact-left h2{
+margin:10px 0;
+}
+
+.contact-right{
+flex:1;
+}
+
+.contact-right img{
+width:100%;
+border-radius:10px;
+}
+
+/* FLOATING IMAGE */
+
+.floating-img{
+width:150px;
+position:absolute;
+top:50px;
+right:-50px;
+animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+0%,100%{transform:translateY(0);}
+50%{transform:translateY(-20px);}
+}
+
+/* FORM */
+
+.form-row{
+display:flex;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.field{
+flex:1;
+display:flex;
+flex-direction:column;
+}
+
+.contact-form input,
+.contact-form textarea{
+padding:10px;
+margin:10px 0;
+border:1px solid #ccc;
+}
+
+.contact-form button{
+padding:12px;
+background:#000;
+color:#fff;
+border:none;
+cursor:pointer;
+}
+
+/* MAP */
+
+.map-box iframe{
+width:100%;
+height:300px;
+border:0;
+margin-top:30px;
+}
+
+/* TABLET VIEW */
+
+@media(max-width:1024px){
+
+.contact-info-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.contact-wrapper{
+flex-direction:column;
+}
+
+.floating-img{
+right:0;
+}
+
+}
+
+/* MOBILE VIEW */
+
+@media(max-width:768px){
+
+.hero-overlay h1{
+font-size:28px;
+}
+
+.hero-overlay p{
+font-size:14px;
+}
+
+.contact-info-grid{
+grid-template-columns:1fr;
+}
+
+.form-row{
+flex-direction:column;
+}
+
+.floating-img{
+position:static;
+margin:20px auto;
+display:block;
+}
+
+.contact-hero{
+height:40vh;
+}
+
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:480px){
+
+.hero-overlay h1{
+font-size:22px;
+}
+
+.hero-overlay p{
+font-size:12px;
+}
+
+}
+  </style>
+
+  <script>
+    const hero=document.querySelector(".contact-hero");
+
+const images=[
+"./ai2.webp",
+"./debate.webp",
+"./digi.webp"
+];
+
+let i=0;
+
+setInterval(()=>{
+hero.style.backgroundImage=`url(${images[i]})`;
+i=(i+1)%images.length;
+},3000);
+
+document.getElementById("contactForm").addEventListener("submit",function(e){
+
+e.preventDefault();
+
+let name=document.getElementById("name").value.trim();
+let email=document.getElementById("email").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let subject=document.getElementById("subject").value.trim();
+let message=document.getElementById("message").value.trim();
+
+if(name==="" || email==="" || phone==="" || subject==="" || message===""){
+
+alert("Please fill all details");
+
+}else{
+
+window.location.href="404.html";
+
+}
+
+});
+  </script>
+ <!-- <footer> -->
+  <footer class="footer">
+    <div class="footer-container">
+
+        <!-- Logo / About -->
+        <div class="footer-box">
+            <img src="./logo.webp" alt="Stackly Logo" class="footer-logo"  style="height:60px;">
+
+           
+            <!-- <p>We deliver secure, scalable and innovative IT services for global businesses.</p><br> -->
+
+            <!-- Social Icons -->
+            <div class="footer-social">
+                <a href="./404.html"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="./404.html"><i class="fa-brands fa-instagram"></i></a>
+                <a href="./404.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="./404.html"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="footer-box">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="./about.html">About us</a></li>
+                  <li><a href="./ride.html">Ride</a></li>
+                   <li><a href="./contact.html">Contact</a></li>
+                     <li><a href="./dashboard.html">Dashboard</a></li>
+
+            </ul>
+        </div>
+
+        <!-- Address -->
+        <div class="footer-box">
+            <h3>Our Address</h3>
+            <p>
+                MMR complex.<br>
+                chinna tirupathi kovil street,<br>
+                salem,Tamil nadu-636008<br>
+                <!-- Bengaluru, Karnataka – 560066<br> -->
+                India<br><br>
+
+                <strong>Phone:</strong> +91 98765 43210<br>
+                <strong>Email:</strong> support@thestackly.com
+            </p>
+        </div>
+
+        <!-- Google Map -->
+        <div class="footer-box">
+            <h3>Location</h3>
+            <iframe 
+            src="https://www.google.com/maps?q=Salem%20Tamil%20Nadu&output=embed"
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 stackly | All Rights Reserved</p>
+    </div>
+</footer>
+
+
+
+
+<script src="./script.js"></script>
+</body>
+</html>
+
+
+  
+  

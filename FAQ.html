@@ -1,0 +1,360 @@
+<section class="rr-faq-section">
+
+    <div class="rr-faq-container">
+    
+    <h2 class="rr-title">Rental FAQs</h2>
+    
+    <!-- SEARCH -->
+    
+    <div class="rr-search-box">
+    <input type="text" id="rrFaqSearch" placeholder="Search for answers... (refund, cancellation, booking)">
+    </div>
+    
+    <!-- TABS -->
+    
+    <div class="rr-tabs">
+    
+    <button class="rr-tab active" data-tab="booking">Booking</button> <button class="rr-tab" data-tab="vehicle">Vehicle Info</button> <button class="rr-tab" data-tab="trip">Trip</button> <button class="rr-tab" data-tab="payment">Payment</button> <button class="rr-tab" data-tab="safety">Safety</button>
+    
+    </div>
+    
+    <!-- BOOKING -->
+    
+    <div class="rr-group active" id="booking">
+    
+    <div class="rr-item">
+    <button class="rr-question">Who can rent a car or bike?</button>
+    <div class="rr-answer">
+    <p>Anyone above 21 years with a valid driving license can rent vehicles.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">Can tourists or NRIs rent vehicles?</button>
+    <div class="rr-answer">
+    <p>Yes international tourists can rent vehicles with valid passport and license.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">How does the booking process work?</button>
+    <div class="rr-answer">
+    <p>Select a vehicle, choose pickup location and time, then confirm payment.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">How early should I book my rental?</button>
+    <div class="rr-answer">
+    <p>We recommend booking at least 24 hours in advance for better availability.</p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <!-- VEHICLE -->
+    
+    <div class="rr-group" id="vehicle">
+    
+    <div class="rr-item">
+    <button class="rr-question">Are helmets provided with bikes?</button>
+    <div class="rr-answer">
+    <p>Yes helmets are provided for all bike rentals.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">Do rental cars come with fuel?</button>
+    <div class="rr-answer">
+    <p>Cars come with minimal fuel and customers should refill during trips.</p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <!-- TRIP -->
+    
+    <div class="rr-group" id="trip">
+    
+    <div class="rr-item">
+    <button class="rr-question">Is there a mileage limit?</button>
+    <div class="rr-answer">
+    <p>Yes mileage depends on the plan you choose.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">Can I extend my rental trip?</button>
+    <div class="rr-answer">
+    <p>Yes you can extend your trip through your booking dashboard.</p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <!-- PAYMENT -->
+    
+    <div class="rr-group" id="payment">
+    
+    <div class="rr-item">
+    <button class="rr-question">What payment methods are accepted?</button>
+    <div class="rr-answer">
+    <p>UPI, debit cards, credit cards and net banking are supported.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">Is there a refundable deposit?</button>
+    <div class="rr-answer">
+    <p>Yes a refundable security deposit is required depending on vehicle type.</p>
+    </div>
+    </div>
+    
+    </div>
+    
+    <!-- SAFETY -->
+    
+    <div class="rr-group" id="safety">
+    
+    <div class="rr-item">
+    <button class="rr-question">Are vehicles sanitized before delivery?</button>
+    <div class="rr-answer">
+    <p>All vehicles are sanitized before every rental.</p>
+    </div>
+    </div>
+    
+    <div class="rr-item">
+    <button class="rr-question">What if the vehicle breaks down?</button>
+    <div class="rr-answer">
+    <p>We provide 24/7 roadside assistance for emergencies.</p>
+    </div>
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+    
+    <!-- NEWSLETTER -->
+    
+    <section class="rr-newsletter">
+    
+    <div class="rr-news-container">
+    
+    <h2>Subscribe for Offers & Updates</h2>
+    
+    <p>Get rental deals, discounts and travel updates directly to your inbox.</p>
+    
+    <div class="rr-news-form">
+    
+    <input type="email" placeholder="Enter your email address">
+    
+    <button>Subscribe</button>
+    
+    </div>
+    
+    </div>
+    
+    </section>
+
+    
+    <style>
+        /* FAQ SECTION */
+
+.rr-faq-section{
+padding:80px 10%;
+background:#f9f9f9;
+}
+
+.rr-title{
+text-align:center;
+font-size:36px;
+margin-bottom:30px;
+}
+
+/* SEARCH */
+
+.rr-search-box{
+display:flex;
+justify-content:center;
+margin-bottom:30px;
+}
+
+.rr-search-box input{
+width:500px;
+max-width:100%;
+padding:14px 20px;
+border-radius:30px;
+border:1px solid #ccc;
+}
+
+/* TABS */
+
+.rr-tabs{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:40px;
+}
+
+.rr-tab{
+padding:10px 20px;
+border:none;
+border-radius:25px;
+background:#eee;
+cursor:pointer;
+}
+
+.rr-tab.active{
+background:#4caf9f;
+color:white;
+}
+
+/* FAQ ITEMS */
+
+.rr-group{
+display:none;
+}
+
+.rr-group.active{
+display:block;
+}
+
+.rr-item{
+background:white;
+margin-bottom:15px;
+border-radius:12px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+overflow:hidden;
+}
+
+.rr-question{
+width:100%;
+padding:18px;
+border:none;
+background:white;
+text-align:left;
+font-size:16px;
+cursor:pointer;
+}
+
+.rr-answer{
+display:none;
+padding:0 18px 18px;
+color:#555;
+}
+
+/* NEWSLETTER */
+
+.rr-newsletter{
+padding:80px 10%;
+background:linear-gradient(135deg,#4caf9f,#6cc3b7);
+color:white;
+text-align:center;
+}
+
+.rr-news-container h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.rr-news-form{
+margin-top:25px;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.rr-news-form input{
+padding:14px;
+width:300px;
+border:none;
+border-radius:25px;
+}
+
+.rr-news-form button{
+padding:14px 25px;
+border:none;
+border-radius:25px;
+background:#ffc107;
+cursor:pointer;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.rr-title{
+font-size:28px;
+}
+
+.rr-news-container h2{
+font-size:26px;
+}
+
+}
+
+    </style>
+
+    <script>
+
+/* ACCORDION */
+
+document.querySelectorAll(".rr-question").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+let answer=btn.nextElementSibling;
+
+answer.style.display =
+answer.style.display === "block" ? "none" : "block";
+
+});
+
+});
+
+
+/* TAB SWITCH */
+
+let tabs=document.querySelectorAll(".rr-tab");
+let groups=document.querySelectorAll(".rr-group");
+
+tabs.forEach(tab=>{
+
+tab.addEventListener("click",()=>{
+
+tabs.forEach(t=>t.classList.remove("active"));
+tab.classList.add("active");
+
+groups.forEach(g=>g.classList.remove("active"));
+
+document.getElementById(tab.dataset.tab).classList.add("active");
+
+});
+
+});
+
+
+/* FAQ SEARCH */
+
+let search=document.getElementById("rrFaqSearch");
+
+search.addEventListener("keyup",function(){
+
+let value=this.value.toLowerCase();
+
+document.querySelectorAll(".rr-item").forEach(item=>{
+
+let text=item.innerText.toLowerCase();
+
+item.style.display=text.includes(value) ? "block":"none";
+
+});
+
+});
+
+</script>
+

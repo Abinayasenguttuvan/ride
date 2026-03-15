@@ -60,336 +60,265 @@
 
 </header>
 
-<style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial;
-}
+</head>
 
-body{
-overflow-x:hidden;
-}
+<body>
 
-/* HERO */
 
-.hero{
+
+    <section class="urx-hero">
+
+        <div class="urx-bg"></div>
+        
+        <div class="urx-container">
+        
+        <!-- LEFT CONTENT -->
+        <div class="urx-left">
+        
+        <span class="urx-badge urx-anim1">Instant Ride Booking</span>
+        
+        <h1 class="urx-title urx-anim2">
+        Book Bike, Auto or Car in Seconds
+        </h1>
+        
+        <p class="urx-desc urx-anim3">
+        Fast, affordable rides across your city. Select your ride,
+        enter pickup and destination and travel safely.
+        </p>
+        
+        <!-- BOOKING CARD -->
+        <div class="urx-card urx-anim4">
+        
+        <div class="urx-ride-type">
+        <button class="active" data-price="50">Bike</button>
+        <button data-price="80">Auto</button>
+        <button data-price="120">Car</button>
+        </div>
+        
+        <div class="urx-price">
+        Estimated Price: ₹<span id="urxPrice">50</span>
+        </div>
+        
+        <div id="urxError" class="urx-error">
+        Please fill all details
+        </div>
+        
+        <input id="urxPickup" type="text" placeholder="Pickup Location">
+        <input id="urxDrop" type="text" placeholder="Destination">
+        
+        <button onclick="urxBook()" class="urx-book">
+        Book Ride
+        </button>
+        
+        </div>
+        
+        </div>
+        
+        
+        <!-- RIGHT VIDEO -->
+        <div class="urx-right urx-anim5">
+        
+        <video autoplay muted loop playsinline class="urx-video">
+        <source src="./car1.mp4" type="video/mp4">
+        </video>
+        
+        </div>
+        
+        </div>
+        
+        </section>
+
+        <style>
+            /* HERO SECTION */
+
+.urx-hero{
+position:relative;
+width:100%;
 min-height:100vh;
 display:flex;
 align-items:center;
-padding:80px 8%;
-background:linear-gradient(130deg,#0f172a,#4338ca);
-color:white;
-position:relative;
 overflow:hidden;
+font-family:sans-serif;
 }
 
-/* LOAD ANIMATION */
+/* BACKGROUND IMAGE ZOOM */
 
-.fade-up{
-opacity:0;
-transform:translateY(60px);
-transition:1s;
+.urx-bg{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:url("./t4.webp") center/cover no-repeat;
+animation:urxZoom 15s infinite alternate;
+z-index:-1;
 }
 
-.fade-up.active{
-opacity:1;
-transform:translateY(0);
+@keyframes urxZoom{
+0%{transform:scale(1);}
+100%{transform:scale(1.15);}
 }
 
 /* CONTAINER */
 
-.container{
+.urx-container{
+width:90%;
+max-width:1300px;
+margin:auto;
 display:flex;
 align-items:center;
 justify-content:space-between;
-gap:60px;
-max-width:1300px;
-margin:auto;
-width:100%;
+gap:40px;
 }
 
 /* LEFT */
 
-.left{
+.urx-left{
 flex:1;
+color: white;
 }
 
-.badge{
-background:rgba(255,255,255,0.2);
-padding:10px 20px;
-border-radius:30px;
+.urx-badge{
+background:#0f172a;
+color:white;
+padding:6px 14px;
+border-radius:20px;
+font-size:13px;
 display:inline-block;
+margin-bottom:15px;
+}
+
+.urx-title{
+font-size:48px;
+line-height:1.2;
 margin-bottom:20px;
 }
 
-.left h1{
-font-size:52px;
-margin-bottom:20px;
-}
-
-.left p{
-color:#ddd;
+.urx-desc{
+font-size:17px;
+color: white;
 margin-bottom:30px;
-max-width:520px;
+max-width:500px;
 }
 
-/* GLASS CARD */
+/* BOOK CARD */
 
-.card{
-backdrop-filter:blur(20px);
+.urx-card{
 background:rgba(255,255,255,0.1);
-padding:25px;
-border-radius:18px;
-border:1px solid rgba(255,255,255,0.2);
+backdrop-filter:blur(15px);
+padding:30px;
+border-radius:20px;
+width:100%;
 max-width:420px;
 }
 
-/* RIDE SELECTOR */
-
-.ride-type{
+.urx-ride-type{
 display:flex;
 gap:10px;
 margin-bottom:15px;
 }
 
-.ride-type button{
+.urx-ride-type button{
 flex:1;
 padding:10px;
 border:none;
-border-radius:10px;
-background:#ffffff30;
-color:white;
+border-radius:8px;
 cursor:pointer;
+background:#eee;
 }
 
-.ride-type button.active{
-background:#ff3b3b;
+.urx-ride-type button.active{
+background:#0f172a;
+color:white;
 }
 
-/* INPUT */
+.urx-price{
+margin-bottom:10px;
+font-weight:600;
+}
 
-.card input{
+.urx-error{
+display:none;
+color:red;
+font-size:13px;
+margin-bottom:10px;
+}
+
+.urx-card input{
 width:100%;
-padding:14px;
+padding:12px;
+margin-bottom:10px;
 border:none;
 border-radius:8px;
-margin-bottom:12px;
 }
 
-/* ERROR */
-
-.error{
-color:#ffb3b3;
-display:none;
-font-size:14px;
-margin-bottom:10px;
-}
-
-/* PRICE */
-
-.price{
-margin-bottom:10px;
-font-weight:bold;
-color:#00ffcc;
-}
-
-/* BUTTON */
-
-.book{
+.urx-book{
 width:100%;
 padding:14px;
-border:none;
-background:#ff3b3b;
+background:#0f172a;
 color:white;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-}
-
-/* MAP */
-
-.map{
-margin-top:15px;
-height:170px;
-border-radius:12px;
-overflow:hidden;
-position:relative;
-}
-
-.map iframe{
-width:100%;
-height:100%;
 border:none;
+font-weight:700;
+cursor:pointer;
+border-radius:10px;
 }
 
-/* ROUTE LINE */
+/* RIGHT VIDEO */
 
-.route{
-position:absolute;
-width:3px;
-height:70px;
-background:#00ffcc;
-left:50%;
-top:30%;
-animation:routeMove 3s infinite;
-}
-
-@keyframes routeMove{
-0%{opacity:0}
-50%{opacity:1}
-100%{opacity:0}
-}
-
-/* DRIVER */
-
-.driver{
-position:absolute;
-width:20px;
-height:20px;
-background:yellow;
-border-radius:50%;
-top:65%;
-left:30%;
-animation:driverMove 6s linear infinite;
-}
-
-@keyframes driverMove{
-0%{left:30%;top:65%}
-50%{left:50%;top:45%}
-100%{left:70%;top:30%}
-}
-
-/* RIGHT SIDE SLANTED SCROLL */
-
-.right{
+.urx-right{
 flex:1;
-height:520px;
-overflow:hidden;
-position:relative;
-transform:rotate(-12deg);
-}
-
-.image-column{
 display:flex;
-flex-direction:column;
-gap:30px;
-animation:scrollImages 20s linear infinite;
+justify-content:center;
 }
 
-.image-column img{
-width:240px;
+.urx-video{
+width:100%;
+max-width:520px;
 border-radius:20px;
-box-shadow:0 20px 40px rgba(0,0,0,0.4);
-animation:zoom 6s ease-in-out infinite;
+box-shadow:0 10px 30px rgba(0,0,0,0.5);
 }
 
-@keyframes scrollImages{
-0%{transform:translateY(0)}
-100%{transform:translateY(-50%)}
-}
+/* LOAD ANIMATION */
 
-/* ZOOM EFFECT */
+.urx-anim1{animation:fadeUp 0.6s ease forwards}
+.urx-anim2{animation:fadeUp 1s ease forwards}
+.urx-anim3{animation:fadeUp 1.4s ease forwards}
+.urx-anim4{animation:fadeUp 1.8s ease forwards}
+.urx-anim5{animation:fadeUp 2.2s ease forwards}
 
-@keyframes zoom{
-0%{transform:scale(1)}
-50%{transform:scale(1.1)}
-100%{transform:scale(1)}
-}
-/* ROAD */
-
-.road{
-position:absolute;
-bottom:-50px;   /* creates space above the road */
-left:0;
-width:100vw;
-height:110px;
-background:#1a1a1a;
-overflow:hidden;
-z-index:1;
-}
-
-/* ROAD LINE */
-
-.road::before{
-content:"";
-position:absolute;
-top:50%;
-left:0;
-width:200vw;
-height:6px;
-
-background:repeating-linear-gradient(
-to right,
-white 0px,
-white 40px,
-transparent 40px,
-transparent 80px
-);
-
-animation:roadMove 3s linear infinite;
-}
-
-/* ROAD MOVEMENT */
-
-@keyframes roadMove{
-
+@keyframes fadeUp{
 0%{
-transform:translateX(0);
+opacity:0;
+transform:translateY(40px);
 }
-
 100%{
-transform:translateX(-200px);
+opacity:1;
+transform:translateY(0);
 }
-
-}
-
-/* VEHICLES */
-
-.vehicle{
-position:absolute;
-bottom:40px;  /* keeps vehicles aligned with road */
-width:70px;
-z-index:2;
-animation:drive 10s linear infinite;
-}
-
-.vehicle.bike{
-left:-200px;
-animation-duration:8s;
-}
-
-.vehicle.car{
-left:-150px;
-animation-duration:12s;
-}
-
-@keyframes drive{
-
-0%{
-left:-200px;
-}
-
-100%{
-left:110vw;
-}
-
 }
 
 /* TABLET */
 
 @media(max-width:992px){
 
-.road{
-height:100px;
-bottom:-15px;
+.urx-container{
+flex-direction:column;
+text-align:center;
 }
 
-.vehicle{
-width:60px;
-bottom:35px;
+.urx-left{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
+.urx-title{
+font-size:36px;
+}
+
+.urx-card{
+max-width:100%;
 }
 
 }
@@ -398,460 +327,51 @@ bottom:35px;
 
 @media(max-width:600px){
 
-.road{
-height:90px;
-bottom:-10px;
-}
-
-.vehicle{
-width:50px;
-bottom:30px;
-}
-
-}
-/* VEHICLES */
-
-.vehicle{
-position:absolute;
-bottom:25px;
-width:70px;
-animation:drive 10s linear infinite;
-}
-
-.vehicle.bike{
-left:-200px;
-animation-duration:8s;
-}
-
-.vehicle.car{
-left:-150px;
-animation-duration:12s;
-}
-
-@keyframes drive{
-0%{left:-200px}
-100%{left:110%}
-}
-
-/* RESPONSIVE */
-
-@media(max-width:992px){
-
-.container{
-flex-direction:column;
-text-align:center;
-}
-
-.left h1{
-font-size:38px;
-}
-
-.right{
-transform:none;
-height:350px;
-}
-
-.image-column img{
-width:200px;
-}
-
-}
-
-@media(max-width:600px){
-
-.left h1{
+.urx-title{
 font-size:28px;
 }
 
-.left p{
-font-size:14px;
+.urx-desc{
+font-size:15px;
 }
 
-.image-column img{
-width:160px;
-}
-
-.vehicle{
-width:55px;
+.urx-video{
+max-width:100%;
 }
 
 }
-
-</style>
-</head>
-
-<body>
-
-
-
-<!-- HERO SECTION WITH VIDEO -->
-
-<section class="uride-hero">
-
-    <!-- BACKGROUND VIDEO -->
-    <video autoplay muted loop playsinline class="uride-bg-video">
-    <source src="./car.mp4" type="video/mp4">
-    </video>
-    
-    <div class="uride-overlay"></div>
-    
-    <div class="uride-container">
-    
-    <div class="uride-content uride-fade">
-    
-    <span class="uride-badge">Instant Ride Booking</span>
-    
-    <h1>Book Bike, Auto or Car in Seconds</h1>
-    
-    <p>
-    Fast, affordable rides across your city. Select your ride,
-    enter pickup and destination and travel safely.
-    </p>
-    
-    <!-- BOOKING CARD -->
-    <div class="uride-card">
-    
-    <div class="uride-ride-type">
-    <button class="active" data-price="50">Bike</button>
-    <button data-price="80">Auto</button>
-    <button data-price="120">Car</button>
-    </div>
-    
-    <div class="uride-price">
-    Estimated Price: ₹<span id="uridePrice">50</span>
-    </div>
-    
-    <div class="uride-error" id="urideError">Please fill all details</div>
-    
-    <input id="uridePickup" type="text" placeholder="Pickup Location">
-    <input id="urideDrop" type="text" placeholder="Destination">
-    
-    <button class="uride-book" onclick="urideBook()">Book Ride</button>
-    
-    <!-- MAP -->
-    <div class="uride-map">
-    
-    <iframe
-    src="https://maps.google.com/maps?q=chennai&t=&z=13&ie=UTF8&iwloc=&output=embed">
-    </iframe>
-    
-    <div class="uride-route"></div>
-    <div class="uride-driver"></div>
-    
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    <!-- VEHICLES -->
-    <img class="uride-vehicle uride-bike"
-    src="https://cdn-icons-png.flaticon.com/512/2972/2972185.png">
-    
-    <img class="uride-vehicle uride-car"
-    src="https://cdn-icons-png.flaticon.com/512/744/744465.png">
-    
-    </section>
-
-    <style>
-        /* HERO SECTION */
-
-.uride-hero{
-position:relative;
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
-color:black;
-}
-
-/* VIDEO */
-
-.uride-bg-video{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-2;
-}
-
-.uride-overlay{
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-/* background:rgba(0,0,0,0.6); */
-z-index:-1;
-}
-
-/* CONTAINER */
-
-.uride-container{
-max-width:700px;
-padding:20px;
-}
-
-/* BADGE */
-
-.uride-badge{
-background: yellowgreen;
-padding:6px 16px;
-border-radius:20px;
-font-size:14px;
-display:inline-block;
-margin-bottom:15px;
-color:black;
-font-weight:600;
-}
-
-/* TITLE */
-
-.uride-content h1{
-font-size:46px;
-margin-bottom:15px;
-}
-
-.uride-content p{
-color: black;
-margin-bottom:30px;
-}
-
-/* BOOK CARD */
-
-.uride-card{
-background: black;
-backdrop-filter:blur(10px);
-padding:30px;
-border-radius:18px;
-}
-
-/* RIDE TYPES */
-
-.uride-ride-type{
-display:flex;
-gap:10px;
-justify-content:center;
-margin-bottom:15px;
-}
-
-.uride-ride-type button{
-padding:8px 16px;
-border:none;
-border-radius:20px;
-cursor:pointer;
-background:#ddd;
-}
-
-.uride-ride-type button.active{
-background:yellowgreen;
-color:#000;
-}
-
-/* PRICE */
-
-.uride-price{
-margin-bottom:10px;
-font-weight:600;
-}
-
-/* ERROR */
-
-.uride-error{
-color:#ff6b6b;
-display:none;
-margin-bottom:10px;
-}
-
-/* INPUTS */
-
-.uride-card input{
-width:100%;
-padding:12px;
-margin:8px 0;
-border-radius:8px;
-border:none;
-}
-
-/* BUTTON */
-
-.uride-book{
-width:100%;
-padding:12px;
-border:none;
-background:yellowgreen;
-color:black;
-border-radius:10px;
-font-weight:bold;
-cursor:pointer;
-margin-top:10px;
-}
-
-/* MAP */
-
-.uride-map{
-margin-top:15px;
-height:180px;
-position:relative;
-border-radius:10px;
-overflow:hidden;
-}
-
-.uride-map iframe{           linear-gradient(90deg,transparent,#38bdf8,transparent);
-width:100%;
-height:100%;
-border:0;
-}
-
-/* ROUTE ANIMATION */
-
-.uride-route{
-position:absolute;
-top:50%;
-left:0;
-height:3px;
-width:100%;
-background: yellowgreen;
-animation:urideRoute 4s linear infinite;
-}
-
-@keyframes urideRoute{
-0%{transform:translateX(-100%);}
-100%{transform:translateX(100%);}
-}
-
-/* DRIVER */
-
-.uride-driver{
-position:absolute;
-top:45%;
-left:0;
-width:12px;
-height:12px;
-background:yellowgreen;
-border-radius:50%;
-animation:urideDriver 5s linear infinite;
-}
-
-@keyframes urideDriver{
-0%{left:0}
-100%{left:100%}
-}
-
-/* VEHICLES */
-
-.uride-vehicle{
-position:absolute;
-bottom:40px;
-width:60px;
-opacity:0.9;
-}
-
-.uride-bike{
-left:-80px;
-animation:urideBike 14s linear infinite;
-}
-
-.uride-car{
-right:-80px;
-animation:urideCar 16s linear infinite;
-}
-
-@keyframes urideBike{
-0%{left:-80px}
-100%{left:110%}
-}
-
-@keyframes urideCar{
-0%{right:-80px}
-100%{right:110%}
-}
-
-/* FADE LOAD */
-
-.uride-fade{
-opacity:0;
-transform:translateY(40px);
-animation:urideFade 1.5s forwards;
-animation-delay:0.5s;
-}
-
-@keyframes urideFade{
-to{
-opacity:1;
-transform:translateY(0);
-}
-}
-
-/* RESPONSIVE */
-
-@media(max-width:768px){
-
-.uride-content h1{
-font-size:32px;
-}
-
-.uride-map{
-height:150px;
-}
-
-}
-
-@media(max-width:480px){
-
-.uride-content h1{
-font-size:26px;
-}
-
-.uride-card{
-padding:20px;
-}
-
-}
-    </style>
+        </style>
 
 <script>
 
     /* PRICE SWITCH */
     
-    const rideBtns=document.querySelectorAll(".uride-ride-type button");
-    const price=document.getElementById("uridePrice");
+    const rideBtns=document.querySelectorAll(".urx-ride-type button");
+    const price=document.getElementById("urxPrice");
     
     rideBtns.forEach(btn=>{
-    btn.addEventListener("click",()=>{
-    
+    btn.onclick=()=>{
     rideBtns.forEach(b=>b.classList.remove("active"));
     btn.classList.add("active");
-    
     price.innerText=btn.dataset.price;
-    
-    });
-    });
-    
-    
-    /* BOOK RIDE */
-    
-    function urideBook(){
-    
-    let pickup=document.getElementById("uridePickup").value;
-    let drop=document.getElementById("urideDrop").value;
-    let error=document.getElementById("urideError");
-    
-    if(pickup=="" || drop==""){
-    
-    error.style.display="block";
-    
-    }else{
-    
-    window.location.href="404.html";
-    
     }
+    });
+    
+    /* BOOK BUTTON */
+    
+    function urxBook(){
+    
+    let pickup=document.getElementById("urxPickup").value;
+    let drop=document.getElementById("urxDrop").value;
+    let error=document.getElementById("urxError");
+    
+    if(pickup===""||drop===""){
+    error.style.display="block";
+    return;
+    }
+    
+    error.style.display="none";
+    window.location.href="404.html";
     
     }
     
@@ -1125,8 +645,8 @@ height:220px;
     
     <div class="rbd-input-area">
     
-    <input type="number" id="rbd-distance" placeholder="Distance (km)">
-    <input type="number" id="rbd-time" placeholder="ETA Time (minutes)">
+        <input type="number" id="rbd-distance" placeholder="Distance (km)" min="1">
+        <input type="number" id="rbd-time" placeholder="ETA Time (minutes)" min="1">
     
     <button onclick="rbdCalculateRide()">Calculate Ride</button>
     
@@ -1272,7 +792,7 @@ width:180px;
 
 padding:12px 25px;
 border:none;
-background:#ef4444;
+background:#0f172a;
 color:white;
 border-radius:25px;
 cursor:pointer;
@@ -1397,7 +917,7 @@ animation:rbdRoute 2s linear infinite;
 .rbd-price{
 
 font-size:34px;
-color:#22c55e;
+color: red;
 margin:10px 0;
 
 }
@@ -1408,7 +928,7 @@ margin:10px 0;
 
 margin-top:10px;
 padding:10px 22px;
-background:#ef4444;
+background:#506fb7;
 border:none;
 color:white;
 border-radius:20px;
@@ -1461,32 +981,46 @@ font-size:28px;
     /* PRICE CALCULATION */
     
     function rbdCalculateRide(){
-    
-    let km=document.getElementById("rbd-distance").value
-    let time=document.getElementById("rbd-time").value
-    
-    if(km=="" || time==""){
-    
-    alert("Please fill distance and ETA")
-    return
-    
-    }
-    
-    document.querySelectorAll(".rbd-card").forEach(card=>{
-    
-    let rate=card.getAttribute("data-rate")
-    
-    let price=(km*rate)+(time*2)
-    
-    card.querySelector(".rbd-cost").innerText=Math.round(price)
-    card.querySelector(".rbd-eta").innerText=time
-    card.querySelector(".rbd-km").innerText=km
-    
-    })
-    
-    }
-    
-    
+
+let distance = parseFloat(document.getElementById("rbd-distance").value);
+let time = parseFloat(document.getElementById("rbd-time").value);
+
+/* VALIDATION */
+
+if(isNaN(distance) || isNaN(time) || distance <= 0 || time <= 0){
+
+alert("Please enter valid positive values for Distance and ETA time.");
+return;
+
+}
+
+let cards = document.querySelectorAll(".rbd-card");
+
+cards.forEach(card => {
+
+let rate = parseFloat(card.getAttribute("data-rate"));
+
+let cost = Math.round(distance * rate);
+
+card.querySelector(".rbd-cost").innerText = cost;
+card.querySelector(".rbd-km").innerText = distance;
+card.querySelector(".rbd-eta").innerText = time;
+
+});
+
+}
+
+document.querySelectorAll("#rbd-distance, #rbd-time").forEach(input => {
+
+input.addEventListener("keydown", function(e){
+
+if(e.key === "-" || e.key === "e"){
+e.preventDefault();
+}
+
+});
+
+});
     /* SCROLL REVEAL */
     
     const rbdReveal=document.querySelectorAll(".rbd-reveal")
@@ -3005,14 +2539,15 @@ width:100%;
 padding:14px;
 border:none;
 border-radius:8px;
-background:#00ff9d;
+background:#131339;
+color:white;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
 }
 
 .drvjoinx-card button:hover{
-background:#00cc7a;
+background:linear-gradient(45deg,#38bdf8,#6366f1);
 }
 
 /* ERROR TEXT */
@@ -3196,7 +2731,7 @@ width:100%;
 height:100%;
 overflow:hidden;
 z-index:1;
-background:url("https://www.transparenttextures.com/patterns/cartographer.png");
+background:url("./t4.webp");
 opacity:0.15;
 }
 
@@ -3315,7 +2850,7 @@ min-width:120px;
 
 .ubmap-stat h3{
 font-size:32px;
-color:#38bdf8;
+color:#6c89df;
 }
 
 .ubmap-stat p{
@@ -3329,7 +2864,7 @@ color:#cbd5f5;
 padding:14px 32px;
 border:none;
 border-radius:30px;
-background:#38bdf8;
+background:linear-gradient(45deg,#38bdf8,#6366f1);
 color:#000;
 font-weight:600;
 cursor:pointer;

@@ -63,257 +63,209 @@
 
 <body>
 
-<section class="ridep-hero">
 
-<!-- SLIDER -->
 
-<div class="ridep-slider">
-
-<div class="ridep-slide active">
-<img src="./taxi1.webp">
-
-<div class="ridep-content">
-<h1>Fast & Reliable City Rides</h1>
-<p>Book rides instantly and reach your destination safely with professional drivers and affordable fares.</p>
-
-<div class="ridep-buttons">
-<a href="404.html" class="ridep-btn">Book Ride</a>
-<a href="404.html" class="ridep-btn-outline">View Pricing</a>
-</div>
-
-</div>
-</div>
-
-
-<div class="ridep-slide">
-<img src="./taxi.webp">
-
-<div class="ridep-content">
-<h1>Bike, Auto & Car Options</h1>
-<p>Choose from multiple ride options depending on your comfort, budget and travel time.</p>
-
-<div class="ridep-buttons">
-<a href="404.html" class="ridep-btn">Explore Rides</a>
-</div>
-
-</div>
-</div>
-
-
-<div class="ridep-slide">
-<img src="./auto.webp">
-
-<div class="ridep-content">
-<h1>Affordable Daily Commutes</h1>
-<p>Save time and money with efficient rides designed for busy city travel.</p>
-
-<div class="ridep-buttons">
-<a href="404.html" class="ridep-btn">Get Started</a>
-</div>
-
-</div>
-</div>
-
-</div>
-
-</section>
-
-<style>
-    *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-background:#000;
-}
-
-/* HERO */
-
-.ridep-hero{
-position:relative;
-width:100%;
-height:90vh;
-overflow:hidden;
-}
-
-/* SLIDES */
-
-.ridep-slider{
-position:relative;
-width:100%;
-height:100%;
-}
-
-.ridep-slide{
-position:absolute;
-width:100%;
-height:100%;
-opacity:0;
-transition:opacity 1s ease;
-}
-
-.ridep-slide.active{
-opacity:1;
-z-index:2;
-}
-
-.ridep-slide img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-/* CONTENT */
-
-.ridep-content{
-position:absolute;
-top:50%;
-left:10%;
-transform:translateY(-50%);
-color: white;
-max-width:520px;
-}
-
-.ridep-content h1{
-font-size:50px;
-margin-bottom:20px;
-}
-
-.ridep-content p{
-font-size:18px;
-line-height:1.6;
-margin-bottom:30px;
-}
-
-/* BUTTONS */
-
-.ridep-buttons{
-display:flex;
-gap:15px;
-flex-wrap:wrap;
-}
-
-.ridep-btn{
-padding:14px 30px;
-background:#ffcc00;
-color:black;
-text-decoration:none;
-border-radius:30px;
-font-weight:bold;
-}
-
-.ridep-btn-outline{
-padding:14px 30px;
-border:2px solid white;
-color:white;
-text-decoration:none;
-border-radius:30px;
-}
-
-/* ================= */
-/* MEDIA QUERIES */
-/* ================= */
-
-
-/* LAPTOP */
-
-@media(max-width:1200px){
-
-.ridep-content h1{
-font-size:42px;
-}
-
-}
-
-
-/* TABLET */
-
-@media(max-width:992px){
-
-.ridep-hero{
-height:80vh;
-}
-
-.ridep-content{
-left:8%;
-max-width:450px;
-}
-
-.ridep-content h1{
-font-size:34px;
-}
-
-.ridep-content p{
-font-size:16px;
-}
-
-}
-
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-.ridep-hero{
-height:75vh;
-}
-
-.ridep-content{
-left:5%;
-right:5%;
-max-width:100%;
-}
-
-.ridep-content h1{
-font-size:26px;
-}
-
-.ridep-content p{
-font-size:14px;
-}
-
-.ridep-buttons{
-flex-direction:column;
-}
-
-.ridep-btn,
-.ridep-btn-outline{
-width:180px;
-text-align:center;
-}
-
-}
-</style>
-
-<script>
-
-const rideSlides = document.querySelectorAll(".ridep-slide");
-
-let rideIndex = 0;
-
-function rideSlider(){
-
-rideSlides.forEach(slide=>{
-slide.classList.remove("active");
-});
-
-rideIndex++;
-
-if(rideIndex > rideSlides.length){
-rideIndex = 1;
-}
-
-rideSlides[rideIndex-1].classList.add("active");
-
-}
-
-setInterval(rideSlider,4000);
-
-</script>
-
+    
+    
+    <section class="abt-hero">
+
+        <div class="abt-overlay"></div>
+      
+        <!-- HERO CONTENT SLIDER -->
+        <div class="abt-content-slider">
+      
+          <div class="abt-slide active">
+            <h1>Moving Cities Forward</h1>
+            <p>
+              We connect riders and drivers through smart technology,
+              making transportation faster, safer and more affordable
+              for everyone.
+            </p>
+      
+            <div class="abt-buttons">
+              <a href="./404.html" class="abt-btn">Book a Ride</a>
+              <a href="./404.html" class="abt-btn-outline">Become a Driver</a>
+            </div>
+          </div>
+      
+          <div class="abt-slide">
+            <h1>Reliable Transportation</h1>
+            <p>
+              Our platform ensures quick pickups, transparent pricing
+              and seamless ride experiences across cities.
+            </p>
+      
+            <div class="abt-buttons">
+              <a href="./404.html" class="abt-btn">Book a ride</a>
+            </div>
+          </div>
+      
+          <div class="abt-slide">
+            <h1>Empowering Drivers</h1>
+            <p>
+              Thousands of drivers earn flexible income with our
+              platform while providing safe transportation to riders.
+            </p>
+      
+            <div class="abt-buttons">
+              <a href="./404.html" class="abt-btn">View pricing</a>
+            </div>
+          </div>
+      
+        </div>
+      
+      </section>
+    
+      <style>
+        /* RESET */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    
+    /* HERO SECTION */
+    .abt-hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      background: url('./bb1.webp') no-repeat center center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    
+    /* DARK OVERLAY */
+    .abt-overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+      z-index: 1;
+    }
+    
+    /* CONTENT */
+    .abt-content-slider {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 20px;
+    }
+    
+    /* SLIDES */
+    .abt-slide {
+      display: none;
+      animation: fade 1s ease-in-out;
+    }
+    
+    .abt-slide.active {
+      display: block;
+    }
+    
+    /* TEXT */
+    .abt-slide h1 {
+      font-size: 48px;
+      color: #fff;
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+    
+    .abt-slide p {
+      font-size: 18px;
+      color: #ddd;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+    
+    /* BUTTONS */
+    .abt-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .abt-btn,
+    .abt-btn-outline {
+      padding: 12px 25px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s ease;
+    }
+    
+    .abt-btn {
+      background: #ff4d4d;
+      color: #fff;
+    }
+    
+    .abt-btn:hover {
+      background: #e63c3c;
+    }
+    
+    .abt-btn-outline {
+      border: 2px solid #fff;
+      color: #fff;
+    }
+    
+    .abt-btn-outline:hover {
+      background: #fff;
+      color: #000;
+    }
+    
+    /* ANIMATION */
+    @keyframes fade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* ------------------- */
+    /* RESPONSIVE DESIGN */
+    /* ------------------- */
+    
+    /* TABLET */
+    @media (max-width: 992px) {
+      .abt-slide h1 {
+        font-size: 36px;
+      }
+    
+      .abt-slide p {
+        font-size: 16px;
+      }
+    }
+    
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .abt-hero {
+        height: 90vh;
+      }
+    
+      .abt-slide h1 {
+        font-size: 28px;
+      }
+    
+      .abt-slide p {
+        font-size: 14px;
+      }
+    
+      .abt-buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+    
+      .abt-btn,
+      .abt-btn-outline {
+        width: 100%;
+      }
+    }
+      </style>
+    
+    
+    
+    
 
 <section class="rds-services">
 
@@ -384,6 +336,194 @@ setInterval(rideSlider,4000);
         
         </section>
     
+
+
+        <section class="payx-section">
+
+            <h2 class="payx-heading">Choose Payment Method</h2>
+            <p class="payx-subtitle">Secure and flexible payment options for your ride</p>
+          
+            <div class="payx-container">
+          
+              <div class="payx-card active">
+                <i class="ri-wallet-3-line"></i>
+                <h3>Cash</h3>
+                <p>Pay directly to the driver after your trip.</p>
+              </div>
+          
+              <div class="payx-card">
+                <i class="ri-smartphone-line"></i>
+                <h3>UPI</h3>
+                <p>Fast and secure payments using any UPI app.</p>
+              </div>
+          
+              <div class="payx-card">
+                <i class="ri-bank-card-line"></i>
+                <h3>Card</h3>
+                <p>Pay securely using credit or debit card.</p>
+              </div>
+          
+              <div class="payx-card">
+                <i class="ri-secure-payment-line"></i>
+                <h3>Wallet</h3>
+                <p>Use your in-app wallet for quick payments.</p>
+              </div>
+          
+            </div>
+          
+            <button class="payx-btn" onclick="payxGo404()">Confirm Payment</button>
+          
+          </section>
+
+          <style>
+            /* ===== PAYX SECTION ===== */
+.payx-section {
+  padding: 80px 6%;
+  background: linear-gradient(135deg, #58478b, #203a43, #b376c2);
+
+  text-align: center;
+}
+
+/* HEADINGS */
+.payx-heading {
+  font-size: 38px;
+  color: #fff;
+}
+
+.payx-subtitle {
+  color: #ccc;
+  margin: 10px 0 50px;
+}
+
+/* GRID */
+.payx-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* CARD */
+.payx-card {
+  padding: 30px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: 0.4s;
+  position: relative;
+
+  /* GLASS */
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255,255,255,0.2);
+
+  color: #fff;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+/* ICON */
+.payx-card i {
+  font-size: 34px;
+  color: #ff7a7a;
+  margin-bottom: 15px;
+}
+
+/* TEXT */
+.payx-card h3 {
+  margin-bottom: 10px;
+}
+
+.payx-card p {
+  font-size: 14px;
+  color: #ddd;
+}
+
+/* HOVER */
+.payx-card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+/* ACTIVE */
+.payx-card.active {
+  border: 2px solid #ff4d4d;
+  background: rgba(255, 77, 77, 0.15);
+  transform: scale(1.05);
+}
+
+/* BUTTON */
+.payx-btn {
+  padding: 14px 40px;
+  border-radius: 50px;
+  border: none;
+  background: linear-gradient(135deg, #ff4d4d, #ff7a7a);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.payx-btn:hover {
+  transform: scale(1.08);
+}
+
+/* ================= */
+/* RESPONSIVE */
+/* ================= */
+
+/* LAPTOP */
+@media (max-width: 1200px) {
+  .payx-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* TABLET */
+@media (max-width: 768px) {
+  .payx-heading {
+    font-size: 28px;
+  }
+
+  .payx-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+  .payx-section {
+    padding: 50px 5%;
+  }
+
+  .payx-heading {
+    font-size: 22px;
+  }
+
+  .payx-btn {
+    width: 100%;
+  }
+}
+          </style>
+
+          <script>
+
+/* SELECT CARD */
+const payxCards = document.querySelectorAll(".payx-card");
+
+payxCards.forEach(card => {
+  card.addEventListener("click", () => {
+    payxCards.forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+  });
+});
+
+/* REDIRECT */
+function payxGo404() {
+  window.location.href = "404.html";
+}
+
+</script>
+
     <!-- SAFETY SECTION -->
     
     <section class="rds-safety">
@@ -798,252 +938,236 @@ window.location.href = "404.html";
 
 
 
-<section class="stk-app-download">
+<section class="pricing-section">
 
-    <div class="stk-app-container">
-    
-    <!-- LEFT CONTENT -->
-    <div class="stk-app-content stk-fade">
-    
-    <h2>Download Our Ride App</h2>
-    
-    <p>
-    Book rides faster, track drivers in real time and enjoy seamless
-    travel experience directly from your phone.
-    </p>
-    
-    <div class="stk-store-buttons">
-    
-    <a href="404.html" class="stk-store-btn">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg">
-    </a>
-    
-    <a href="404.html" class="stk-store-btn">
-    <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg">
-    </a>
-    
+    <h2 class="pricing-heading">Choose Your Ride</h2>
+    <p class="pricing-subtitle">Flexible pricing for every journey</p>
+  
+    <div class="pricing-container">
+  
+      <!-- ECONOMY -->
+      <div class="pricing-card card-left">
+        <h3>Economy</h3>
+        <h1>₹12<span>/km</span></h1>
+        <ul>
+          <li>✔ 4 Seater</li>
+          <li>✔ Budget Friendly</li>
+          <li>✔ AC Available</li>
+        </ul>
+        <a href="404.html" class="price-btn">Book Now</a>
+      </div>
+  
+      <!-- STANDARD -->
+      <div class="pricing-card popular card-bottom">
+        <div class="badge">Most Popular</div>
+        <h3>Standard</h3>
+        <h1>₹18<span>/km</span></h1>
+        <ul>
+          <li>✔ 4-5 Seater</li>
+          <li>✔ Comfortable Ride</li>
+          <li>✔ Priority Booking</li>
+        </ul>
+        <a href="404.html" class="price-btn">Book Now</a>
+      </div>
+  
+      <!-- LUXURY -->
+      <div class="pricing-card card-right">
+        <h3>Luxury</h3>
+        <h1>₹25<span>/km</span></h1>
+        <ul>
+          <li>✔ 6-7 Seater</li>
+          <li>✔ Premium Interior</li>
+          <li>✔ Corporate Travel</li>
+        </ul>
+        <a href="404.html" class="price-btn">Book Now</a>
+      </div>
+  
     </div>
-    
-    <div class="stk-qr-box">
-    
-    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=https://example.com">
-    
-    <p>Scan to download</p>
-    
-    </div>
-    
-    </div>
-    
-    
-    <!-- RIGHT PHONE -->
-    <div class="stk-phone-area stk-fade">
-    
-    <div class="stk-phone">
-    
-    <img src="./taxi1.webp">
-    
-    </div>
-    
-    </div>
-    
-    </div>
-    
-    </section>
+  
+  </section>
 
+  <style>
+    /* SECTION */
+.pricing-section {
+  padding: 80px 8%;
+  background: linear-gradient(135deg, #58478b, #203a43, #b376c2);
 
-    <Style>
-        /* SECTION */
-
-.stk-app-download{
-padding:100px 8%;
-background:#f8fbff;
-font-family:Arial, sans-serif;
-overflow:hidden;
+  text-align: center;
 }
 
-/* CONTAINER */
-
-.stk-app-container{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:60px;
-flex-wrap:wrap;
+/* HEADING */
+.pricing-heading {
+    color:white;
+  font-size: 40px;
+  margin-bottom: 10px;
 }
 
-/* LEFT CONTENT */
-
-.stk-app-content{
-flex:1;
-min-width:280px;
+.pricing-subtitle {
+  color: white;
+  margin-bottom: 50px;
 }
 
-.stk-app-content h2{
-font-size:42px;
-margin-bottom:20px;
-color:#111;
+/* GRID */
+.pricing-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
 }
 
-.stk-app-content p{
-font-size:17px;
-color:#555;
-margin-bottom:30px;
-max-width:500px;
-line-height:1.6;
+/* CARD */
+.pricing-card {
+  background: #fff;
+  padding: 35px 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: 0.4s;
+  position: relative;
+
+  /* animation base */
+  opacity: 0;
 }
 
-/* STORE BUTTONS */
-
-.stk-store-buttons{
-display:flex;
-gap:20px;
-flex-wrap:wrap;
-margin-bottom:30px;
+/* HOVER */
+.pricing-card:hover {
+  transform: translateY(-12px) scale(1.03);
 }
 
-.stk-store-btn img{
-height:55px;
-transition:0.3s;
+/* POPULAR CARD */
+.popular {
+  border: 2px solid #ff4d4d;
 }
 
-.stk-store-btn:hover img{
-transform:scale(1.05);
+/* BADGE */
+.badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  background: #ff4d4d;
+  color: #fff;
+  padding: 5px 12px;
+  font-size: 12px;
+  border-radius: 20px;
 }
 
-/* QR BOX */
-
-.stk-qr-box{
-margin-top:10px;
+/* PRICE */
+.pricing-card h1 {
+  font-size: 42px;
+  margin: 15px 0;
 }
 
-.stk-qr-box img{
-width:120px;
-margin-bottom:8px;
+.pricing-card span {
+  font-size: 16px;
+  color: #777;
 }
 
-.stk-qr-box p{
-font-size:14px;
-color:#444;
+/* LIST */
+.pricing-card ul {
+  list-style: none;
+  margin: 20px 0;
 }
 
-/* RIGHT PHONE */
-
-.stk-phone-area{
-flex:1;
-display:flex;
-justify-content:center;
-align-items:center;
-min-width:280px;
+.pricing-card li {
+  margin-bottom: 10px;
+  color: #555;
 }
 
-.stk-phone{
-width:280px;
-border-radius:40px;
-overflow:hidden;
-box-shadow:0 25px 60px rgba(0,0,0,0.25);
-animation:stkFloat 4s ease-in-out infinite;
+/* BUTTON */
+.price-btn {
+  display: inline-block;
+  padding: 12px 25px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #ff4d4d, #ff7a7a);
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.stk-phone img{
-width:100%;
-height:auto;
-display:block;
-animation:stkZoom 6s ease-in-out infinite;
+.price-btn:hover {
+  transform: scale(1.05);
 }
 
-/* FLOAT ANIMATION */
+/* ================= */
+/* ANIMATIONS */
+/* ================= */
 
-@keyframes stkFloat{
-0%{transform:translateY(0)}
-50%{transform:translateY(-15px)}
-100%{transform:translateY(0)}
+/* Directions */
+.card-left {
+  transform: translateX(-120px);
 }
 
-/* ZOOM IN OUT */
-
-@keyframes stkZoom{
-0%{transform:scale(1)}
-50%{transform:scale(1.1)}
-100%{transform:scale(1)}
+.card-right {
+  transform: translateX(120px);
 }
 
-/* LOAD ANIMATION */
-
-.stk-fade{
-opacity:0;
-transform:translateY(40px);
-transition:1s ease;
+.card-bottom {
+  transform: translateY(120px);
 }
 
-.stk-fade.show{
-opacity:1;
-transform:translateY(0);
+/* ACTIVE */
+.card-show {
+  opacity: 1;
+  transform: translate(0);
+  transition: all 0.8s ease;
+}
+
+/* ================= */
+/* RESPONSIVE */
+/* ================= */
+
+/* LAPTOP */
+@media (max-width: 1200px) {
+  .pricing-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 /* TABLET */
+@media (max-width: 768px) {
+  .pricing-container {
+    grid-template-columns: 1fr;
+  }
 
-@media(max-width:992px){
-
-.stk-app-container{
-flex-direction:column;
-text-align:center;
-}
-
-.stk-app-content p{
-margin:auto;
-}
-
-.stk-store-buttons{
-justify-content:center;
-}
-
+  .pricing-heading {
+    font-size: 30px;
+  }
 }
 
 /* MOBILE */
+@media (max-width: 480px) {
+  .pricing-section {
+    padding: 50px 5%;
+  }
 
-@media(max-width:600px){
+  .pricing-heading {
+    font-size: 24px;
+  }
 
-.stk-app-download{
-padding:70px 6%;
+  .pricing-card h1 {
+    font-size: 32px;
+  }
 }
+  </style>
 
-.stk-app-content h2{
-font-size:32px;
-}
-
-.stk-phone{
-width:220px;
-}
-
-}
-    </style>
-    <script>
-
-const stkElements = document.querySelectorAll(".stk-fade");
-
-function stkReveal(){
-
-stkElements.forEach((el,i)=>{
-
-setTimeout(()=>{
-
-const top = el.getBoundingClientRect().top;
-const trigger = window.innerHeight - 100;
-
-if(top < trigger){
-el.classList.add("show");
-}
-
-}, i*300);
-
-});
-
-}
-
-window.addEventListener("scroll", stkReveal);
-window.addEventListener("load", stkReveal);
-</script>
-
+<script>
+    const cards = document.querySelectorAll(".pricing-card");
+    
+    function showPricing() {
+      const trigger = window.innerHeight * 0.85;
+    
+      cards.forEach((card, index) => {
+        const top = card.getBoundingClientRect().top;
+    
+        if (top < trigger) {
+          setTimeout(() => {
+            card.classList.add("card-show");
+          }, index * 200); // stagger effect
+        }
+      });
+    }
+    
+    window.addEventListener("scroll", showPricing);
+    window.addEventListener("load", showPricing);
+    </script>
 
 <!-- <footer> -->
     <footer class="footer">
